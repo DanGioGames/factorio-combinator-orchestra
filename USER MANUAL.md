@@ -1,7 +1,7 @@
 # Factorio Music Machine - User Manual
 
 ## Table of Contents
-1. [Introduction](introduction)
+1. [Introduction](#introduction)
 2. [Components](#components)
     * [Clock](#clock)
     * [Arpeggiator](#arpeggiator)
@@ -12,7 +12,7 @@ The purpose of the Factorio Music Machine project is to make music creation in F
 This user manual is meant to explain how to use each component to create music and how to expand them to suit your musical needs.
 
 ### Syntax rules
-Virtual signals like ![](/images/screenshots/virtual-signal-R.png) are represented by their ingame image. Non-image, text letters like A, F, G represent **music notes** following the [English notes naming convention](https://en.wikipedia.org/wiki/Musical_note#12-tone_chromatic_scale).
+Virtual signals like <img src="/images/screenshots/virtual-signal-R.png" width="18" height="18" /> are represented by their ingame image. Non-image, text letters like A, F, G represent **music notes** following the [English notes naming convention](https://en.wikipedia.org/wiki/Musical_note#12-tone_chromatic_scale).
 
 ## <a name="components"></a>Components
 
