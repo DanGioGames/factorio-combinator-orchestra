@@ -1,16 +1,15 @@
 # Factorio Music Machine - User Manual
 
 ## Table of Contents
-1. [Introduction](##_Introduction)
-2. [Factorio Music Machine components](##_Factorio_Music_Machine_components)
-    * [Clock](###_Clock)
-    * [Score](###_Score)
-    * [Groove builder](###_Groove_builder)
-    * [Arpeggiator](###_Arpeggiator)
-    * [Divatron](###_Divatron)
-3. [Third Example](#third-example)
+1. [Introduction](introduction)
+2. Components
+    * [Clock](#clock)
+    * [Score](#score)
+    * [Groove builder](#groove-builder)
+    * [Arpeggiator](#arpeggiator)
+    * [Divatron](#divatron)
 
-## Introduction
+## <a name="introduction"></a>Introduction
 The purpose of the Factorio Music Machine project is to make music creation in Factorio easier. It consists of multiple blueprints that work together as different components/instruments of a big customizable machine.
 
 This user manual is meant to explain how to use each component to create music and how to expand them to suit your musical needs.
@@ -20,16 +19,16 @@ Virtual signals like ![](/images/screenshots/virtual-signal-R.png) are represent
 
 ## Factorio Music Machine components
 
-### Clock
+### <a name="clock"></a>Clock
 The Clock is a key component of the Factorio Music Machine. It defines tempo (set in BPM - Beats Per Minute), total number of bars, number of beats per bar, number of breve per beat.
 
-### Score
+### <a name="score"></a>Score
 The Score is where you will "write" your music score. It will then read the clock signal and output instructions to the instruments.
 
-### Groove builder
+### <a name="groove-builder"></a>Groove builder
 The Groove builder is meant to design drum parts.
 
-### Arpeggiator
+### <a name="arpeggiator"></a>Arpeggiator
 The Arpeggiator is meant to generate and play arpeggios, given 4 circuit network input signals (see
 [Chord](https://en.wikipedia.org/wiki/Chord_(music))) :
 * ![](/images/screenshots/virtual-signal-R.png) sets **root-note**
