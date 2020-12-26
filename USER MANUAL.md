@@ -3,7 +3,7 @@
 ## Arpeggiator
 
 ### Chord types
-
+Chord type can be selected by changing the Q virtual signal. Here's the 16 types included in the base Arpeggiator :
 Q signal | Chord type | Notes (root position on C)
 -------- | ---------- | ------------
 1 | Major triad | <img src="/images/chords/maj.png" width="333" height="100" />
