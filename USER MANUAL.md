@@ -12,7 +12,7 @@ The purpose of the Factorio Music Machine project is to make music creation in F
 This user manual is meant to explain how to use each component to create music and how to expand them to suit your musical needs.
 
 ### Syntax rules
-Virtual signals like <img src="/images/screenshots/virtual-signal-R.png" width="24" height="24"/> are represented by their ingame image. Non-image, text letters like A, F, G represent **music notes** following the [English notes naming convention](https://en.wikipedia.org/wiki/Musical_note#12-tone_chromatic_scale){:target="_blank"}.
+Virtual signals like <img src="/images/screenshots/virtual-signal-R.png" width="24" height="24"/> are represented by their ingame image. Non-image, text letters like A, F, G represent **music notes** following the <a href="https://en.wikipedia.org/wiki/Musical_note#12-tone_chromatic_scale" target="_blank">English notes naming convention</a>.
 
 ## <a name="components"></a>Components
 
@@ -46,7 +46,7 @@ The Clock outputs 11 different signals at once, corresponding to various rhythmi
 ### <a name="arpeggiator"></a>Arpeggiator
 #### Overview
 The Arpeggiator is meant to generate and play arpeggios, given 4 circuit network input signals (see
-[Chord](https://en.wikipedia.org/wiki/Chord_(music))) :
+<a href="https://en.wikipedia.org/wiki/Chord_(music)" target="_blank">Chord</a>) :
 * <img src="/images/screenshots/virtual-signal-R.png" width="24" height="24"/> sets `root-note`
 * <img src="/images/screenshots/virtual-signal-Q.png" width="24" height="24"/> sets `chord-type`
 * <img src="/images/screenshots/virtual-signal-P.png" width="24" height="24"/> sets the arpeggio `pattern`
@@ -66,7 +66,7 @@ The Arpeggiator is mainly divided into 5 parts :
 #### Root note
 Select `root-note` by setting <img src="/images/screenshots/virtual-signal-R.png" width="24" height="24"/> in Arpeggiator's input. It follows the chromatic scale starting from A, meaning that 1 = A ; 2 = A# ; 3 = B ; 4 = C etc...
 
-You can go higher than 12 ; setting <img src="/images/screenshots/virtual-signal-R.png" width="24" height="24"/> to 13, 25 or 37 will also set the `root-note` to A (see [Chromatic scale](https://en.wikipedia.org/wiki/Chromatic_scale)). You can also go lower than 0 but going too low will result in out of range, silent notes by the Speakers.
+You can go higher than 12 ; setting <img src="/images/screenshots/virtual-signal-R.png" width="24" height="24"/> to 13, 25 or 37 will also set the `root-note` to A (see <a href="https://en.wikipedia.org/wiki/Chromatic_scale" target="_blank">Chromatic scale</a>). You can also go lower than 0 but going too low will result in out of range, silent notes from the Speakers.
 
 *Note : the Arpeggiator has an automated Chord inverter. It outputs inversion signals depending on `root-note` value, in order to provide better voice progressions when changing chords. If you're not happy with the chord inversion you get with a given root note, just add or substract 12 to <img src="/images/screenshots/virtual-signal-R.png" width="24" height="24"/> and you'll get the same chord in a higher or lower inversion.*
 
