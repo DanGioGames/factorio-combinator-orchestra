@@ -18,6 +18,7 @@ Virtual signals like ![](/images/screenshots/virtual-signal-R.png) are represent
 
 ### <a name="clock"></a>Clock
 The Clock is a key component of the Factorio Music Machine. It defines tempo (set in BPM - Beats Per Minute), total number of bars, number of beats per bar, number of breve per beat.
+![Clock in its working state](/images/screenshots/clock-overview.gif)
 
 ### <a name="arpeggiator"></a>Arpeggiator
 #### Overview
