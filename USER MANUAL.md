@@ -3,11 +3,11 @@
 ## Table of Contents
 1. [Introduction](##_Introduction)
 2. [Factorio Music Machine components](##_Factorio_Music_Machine_components)
-  * [Clock](###_Clock)
-  * [Score](###_Score)
-  * [Groove builder](###_Groove_builder)
-  * [Arpeggiator](###_Arpeggiator)
-  * [Divatron](###_Divatron)
+    * [Clock](###_Clock)
+    * [Score](###_Score)
+    * [Groove builder](###_Groove_builder)
+    * [Arpeggiator](###_Arpeggiator)
+    * [Divatron](###_Divatron)
 3. [Third Example](#third-example)
 
 ## Introduction
