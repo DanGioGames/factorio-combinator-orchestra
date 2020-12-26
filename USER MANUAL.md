@@ -79,22 +79,22 @@ Here are the 16 included patterns in the base Arpeggiator :
 
 ![](/images/screenshots/virtual-signal-P.png) | Pattern length | 32 notes sample on Cmaj root position
 ----- | ----- | -----
-1 | 4 | <img src="/images/patterns/arp-1.png" width="500" height="100" />
-2 | 4 | <img src="/images/patterns/arp-2.png" width="500" height="100" />
-3 | 4 | <img src="/images/patterns/arp-3.png" width="500" height="100" />
-4 | 3 | <img src="/images/patterns/arp-4.png" width="500" height="100" />
-5 | 3 | <img src="/images/patterns/arp-5.png" width="500" height="100" />
-6 | 4 | <img src="/images/patterns/arp-6.png" width="500" height="100" />
-7 | 4 | <img src="/images/patterns/arp-7.png" width="500" height="100" />
-8 | 4 | <img src="/images/patterns/arp-8.png" width="500" height="100" />
-9 | 6 | <img src="/images/patterns/arp-9.png" width="500" height="100" />
-10| 8 | <img src="/images/patterns/arp-10.png" width="500" height="100" />
-11| 8 | <img src="/images/patterns/arp-11.png" width="500" height="100" />
-12| 8 | <img src="/images/patterns/arp-12.png" width="500" height="100" />
-13| 16| <img src="/images/patterns/arp-13.png" width="500" height="100" />
-14| 16| <img src="/images/patterns/arp-14.png" width="500" height="100" />
-15| 16| <img src="/images/patterns/arp-15.png" width="500" height="100" />
-16| 32| <img src="/images/patterns/arp-16.png" width="500" height="100" />
+1 | 4 | <img src="/images/patterns/arp-1.png" width="375" height="75" />
+2 | 4 | <img src="/images/patterns/arp-2.png" width="375" height="75" />
+3 | 4 | <img src="/images/patterns/arp-3.png" width="375" height="75" />
+4 | 3 | <img src="/images/patterns/arp-4.png" width="375" height="75" />
+5 | 3 | <img src="/images/patterns/arp-5.png" width="375" height="75" />
+6 | 4 | <img src="/images/patterns/arp-6.png" width="375" height="75" />
+7 | 4 | <img src="/images/patterns/arp-7.png" width="375" height="75" />
+8 | 4 | <img src="/images/patterns/arp-8.png" width="375" height="75" />
+9 | 6 | <img src="/images/patterns/arp-9.png" width="375" height="75" />
+10| 8 | <img src="/images/patterns/arp-10.png" width="375" height="75" />
+11| 8 | <img src="/images/patterns/arp-11.png" width="375" height="75" />
+12| 8 | <img src="/images/patterns/arp-12.png" width="375" height="75" />
+13| 16| <img src="/images/patterns/arp-13.png" width="375" height="75" />
+14| 16| <img src="/images/patterns/arp-14.png" width="375" height="75" />
+15| 16| <img src="/images/patterns/arp-15.png" width="375" height="75" />
+16| 32| <img src="/images/patterns/arp-16.png" width="375" height="75" />
 
 *Note : more patterns can be added to the Pattern bank, see [Adding new patterns](#adding-new-patterns).*
 
