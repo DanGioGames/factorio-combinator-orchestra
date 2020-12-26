@@ -8,17 +8,17 @@ The Arpeggiator purpose is to generate and play arpeggios, given 4 circuit netwo
 * ![](/images/screenshots/virtual-signal-P.png) sets the arpeggio **pattern** (arpeggio shape & length)
 * ![](/images/screenshots/virtual-signal-O.png) sets a time **offset** for the arpeggio pattern
 
-#### Root note
+### Root note
 Select a root note by setting the ![](/images/screenshots/virtual-signal-R.png) signal in Arpeggiator's input. It follows the chromatic scale starting from A, meaning that 1 = A ; 2 = A# ; 3 = B etc...
 
 You can go higher than 12 ; setting ![](/images/screenshots/virtual-signal-R.png) to 13, 25 or 37 will also set the root note to A (see [Chromatic scale](https://en.wikipedia.org/wiki/Chromatic_scale)). You can also go lower than 0 but it will break if you go too low.
 
 *Note : the Arpeggiator has a automated chord inverter. Its purpose is to invert chords when their Root note gets too high, in order to provide better voice progressions when changing chords. If you're not happy with the chord inversion you get with a given root note, just add or substract 12 to ![](/images/screenshots/virtual-signal-R.png) and you'll get the same chord in a higher or lower inversion.*
 
-#### Chord types
-Select a chord type by setting the ![](/images/screenshots/virtual-signal-Q.png) virtual signal in Arpeggiator's input.
+### Chord type
+Select a chord type by setting the ![](/images/screenshots/virtual-signal-Q.png) virtual signal in Arpeggiator's input. It will be sent to the Chord molder which will then output 13 notes corresponding to the chord type & root note provided.
 
-Here's the 16 types included in the Arpeggiator :
+Here's the 16 types included in the Chord molder :
 
 Q signal | Chord type | Notes (root position on C)
 -------- | ---------- | ------------
@@ -39,4 +39,8 @@ Q signal | Chord type | Notes (root position on C)
 15| Major add second | <img src="/images/chords/majadd2.png" width="333" height="100" />
 16| Minor add second | <img src="/images/chords/minadd2.png" width="333" height="100" />
 
-*Note : the Arpeggiator doesn't limit itself to the 3 or 4 notes showed in the Chord type table. Instead, it duplicates the 3 or 4 base notes to higher octaves, to reach a total of 13 playable notes in the full arpeggio.
+*Note : the Arpeggiator doesn't limit itself to the 3 or 4 notes showed in the Chord type table. Instead, it duplicates the 3 or 4 base notes to higher octaves, to reach a total of 13 playable notes in the full arpeggio.*
+
+### Pattern & Offset
+
+The pattern decide which notes are to be played and when within the 13 chord notes provided by the Chord molder.
