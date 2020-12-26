@@ -12,7 +12,7 @@ The purpose of the Factorio Music Machine project is to make music creation in F
 This user manual is meant to explain how to use each component to create music and how to expand them to suit your musical needs.
 
 ### Syntax rules
-Virtual signals like <img src="/images/screenshots/virtual-signal-R.png" width="24" height="24"/> are represented by their ingame image. Non-image, text letters like A, F, G represent **music notes** following the [English notes naming convention](https://en.wikipedia.org/wiki/Musical_note#12-tone_chromatic_scale).
+Virtual signals like <img src="/images/screenshots/virtual-signal-R.png" width="24" height="24"/> are represented by their ingame image. Non-image, text letters like A, F, G represent **music notes** following the [English notes naming convention](https://en.wikipedia.org/wiki/Musical_note#12-tone_chromatic_scale){:target="_blank"}.
 
 ## <a name="components"></a>Components
 
