@@ -105,5 +105,3 @@ Select `offset` by setting the ![](/images/screenshots/virtual-signal-O.png) sig
 #### <a name="adding-new-chords"></a>Adding new chords
 
 #### <a name="adding-new-patterns"></a>Adding new patterns
-
-"And here's to you, <span style="background-color:green">Mrs. Robinson</span>, Jesus loves you more than you will know."
