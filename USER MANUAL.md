@@ -53,22 +53,22 @@ Here are the 16 chord types included in the base Arpeggiator :
 
 ![](/images/screenshots/virtual-signal-Q.png) | Chord type | Base notes (root position on C)
 ----- | ----- | -----
-1 | Major triad | <img src="/images/chords/maj.png" width="333" height="100" />
-2 | Minor triad | <img src="/images/chords/min.png" width="333" height="100" />
-3 | Diminished triad | <img src="/images/chords/dim.png" width="333" height="100" />
-4 | Augmented triad | <img src="/images/chords/aug.png" width="333" height="100" />
-5 | Major seventh | <img src="/images/chords/maj7.png" width="333" height="100" />
-6 | Minor seventh | <img src="/images/chords/min7.png" width="333" height="100" />
-7 | Dominant seventh | <img src="/images/chords/7.png" width="333" height="100" />
-8 | Half-diminished seventh | <img src="/images/chords/min7b5.png" width="333" height="100" />
-9 | Diminished seventh | <img src="/images/chords/dim7.png" width="333" height="100" />
-10| Rootless altered seventh | <img src="/images/chords/7alt.png" width="333" height="100" />
-11| Dominant seventh suspended fourth | <img src="/images/chords/7sus4.png" width="333" height="100" />
-12| Dominant seventh suspended second | <img src="/images/chords/7sus2.png" width="333" height="100" />
-13| Minor major seventh | <img src="/images/chords/minmaj7.png" width="333" height="100" />
-14| Augmented major seventh | <img src="/images/chords/augmaj7.png" width="333" height="100" />
-15| Major add second | <img src="/images/chords/majadd2.png" width="333" height="100" />
-16| Minor add second | <img src="/images/chords/minadd2.png" width="333" height="100" />
+1 | Major triad | <img src="/images/chords/maj.png" width="250" height="75" />
+2 | Minor triad | <img src="/images/chords/min.png" width="250" height="75" />
+3 | Diminished triad | <img src="/images/chords/dim.png" width="250" height="75" />
+4 | Augmented triad | <img src="/images/chords/aug.png" width="250" height="75" />
+5 | Major seventh | <img src="/images/chords/maj7.png" width="250" height="75" />
+6 | Minor seventh | <img src="/images/chords/min7.png" width="250" height="75" />
+7 | Dominant seventh | <img src="/images/chords/7.png" width="250" height="75" />
+8 | Half-diminished seventh | <img src="/images/chords/min7b5.png" width="250" height="75" />
+9 | Diminished seventh | <img src="/images/chords/dim7.png" width="250" height="75" />
+10| Rootless altered seventh | <img src="/images/chords/7alt.png" width="250" height="75" />
+11| Dominant seventh suspended fourth | <img src="/images/chords/7sus4.png" width="250" height="75" />
+12| Dominant seventh suspended second | <img src="/images/chords/7sus2.png" width="250" height="75" />
+13| Minor major seventh | <img src="/images/chords/minmaj7.png" width="250" height="75" />
+14| Augmented major seventh | <img src="/images/chords/augmaj7.png" width="250" height="75" />
+15| Major add second | <img src="/images/chords/majadd2.png" width="250" height="75" />
+16| Minor add second | <img src="/images/chords/minadd2.png" width="250" height="75" />
 
 *Note : the Chord bank doesn't only outputs the 3 or 4 notes showed in the Chord type table. Instead, it duplicates the 3 or 4 base notes in higher octaves to reach a total of 13 chord notes including the root note. More Chord types can be added to the Chord bank, see [Adding new chords](#adding-new-chords).*
 
