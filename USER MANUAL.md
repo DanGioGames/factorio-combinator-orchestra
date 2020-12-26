@@ -2,12 +2,9 @@
 
 ## Table of Contents
 1. [Introduction](introduction)
-2. Components
+2. [Components](#components)
     * [Clock](#clock)
-    * [Score](#score)
-    * [Groove builder](#groove-builder)
     * [Arpeggiator](#arpeggiator)
-    * [Divatron](#divatron)
 
 ## <a name="introduction"></a>Introduction
 The purpose of the Factorio Music Machine project is to make music creation in Factorio easier. It consists of multiple blueprints that work together as different components/instruments of a big customizable machine.
@@ -17,24 +14,22 @@ This user manual is meant to explain how to use each component to create music a
 ### Syntax rules
 Virtual signals like ![](/images/screenshots/virtual-signal-R.png) are represented by their ingame image. Non-image, text letters like A, F, G represent **music notes** following the [English notes naming convention](https://en.wikipedia.org/wiki/Musical_note#12-tone_chromatic_scale).
 
-## Factorio Music Machine components
+## <a name="components"></a>Components
 
 ### <a name="clock"></a>Clock
 The Clock is a key component of the Factorio Music Machine. It defines tempo (set in BPM - Beats Per Minute), total number of bars, number of beats per bar, number of breve per beat.
 
-### <a name="score"></a>Score
-The Score is where you will "write" your music score. It will then read the clock signal and output instructions to the instruments.
-
-### <a name="groove-builder"></a>Groove builder
-The Groove builder is meant to design drum parts.
-
 ### <a name="arpeggiator"></a>Arpeggiator
+#### Overview
 The Arpeggiator is meant to generate and play arpeggios, given 4 circuit network input signals (see
 [Chord](https://en.wikipedia.org/wiki/Chord_(music))) :
 * ![](/images/screenshots/virtual-signal-R.png) sets **root-note**
 * ![](/images/screenshots/virtual-signal-Q.png) sets **chord-type** (aka chord **quality**)
 * ![](/images/screenshots/virtual-signal-P.png) sets the arpeggio **pattern** (arpeggio shape & length)
 * ![](/images/screenshots/virtual-signal-O.png) sets a time **offset** for the arpeggio pattern
+
+The Arpeggiator is mainly divided into 5 parts :
+![](/images/screenshots/arpeggiator-overview.png)
 
 #### Root note
 Select a root note by setting the ![](/images/screenshots/virtual-signal-R.png) signal in Arpeggiator's input. It follows the chromatic scale starting from A, meaning that 1 = A ; 2 = A# ; 3 = B ; 4 = C etc...
@@ -98,3 +93,7 @@ Here are the 16 included patterns in the base Arpeggiator :
 #### Offset
 
 Select an offset by setting the ![](/images/screenshots/virtual-signal-O.png) signal in Arpeggiator's input. The **offset** will make the pattern play earlier or later.
+
+#### Adding new chords
+
+#### Adding new patterns
