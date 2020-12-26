@@ -18,6 +18,7 @@ Virtual signals like ![](/images/screenshots/virtual-signal-R.png) are represent
 
 ### <a name="clock"></a>Clock
 The Clock is a key component of the Factorio Music Machine. It defines tempo (set in BPM - Beats Per Minute), total number of bars, number of beats per bar, number of breve per beat.
+
 <img src="/images/screenshots/clock-overview.gif" alt="the Clock in its working state" width="200" height="200" />
 
 ### <a name="arpeggiator"></a>Arpeggiator
@@ -34,11 +35,11 @@ The Arpeggiator is meant to generate and play arpeggios, given 4 circuit network
 The Arpeggiator is mainly divided into 5 parts :
 
 ![](/images/screenshots/arpeggiator-overview.png)
-* <span style="color:yellow">Speakers</span> : they produce the sound from the `arpeggio` signal
-* <span style="color:red">Chord inverter</span> : send various inversion signals to the Chord bank when `root-note` increases to make chord changes less brutal
-* <span style="color:magenta">Chord bank</span> : processes `root-note`, `chord-type` and inversion signals and outputs 13 unique notes/signals (`chord-mold`)
-* <span style="color:lime">Loop maker</span> : generates `arpeggio-loop` signal from active `pattern-length` & various Clock signals
-* <span style="color:cyan">Pattern bank</span> : generates the final `arpeggio` signal from `arpeggio-loop` and `chord-mold`, in the form of a varying signal sent to the <span style="color:yellow">Speakers</span>
+<img src="/images/misc/yellow.png" width="20" height="16" /> Speakers : produce the sound from the `arpeggio` signal<br>
+<img src="/images/misc/red.png" width="20" height="16" /> Chord inverter : send various inversion signals to the Chord bank when `root-note` increases to make chord changes less brutal<br>
+<img src="/images/misc/magenta.png" width="20" height="16" /> Chord bank : processes `root-note`, `chord-type` and inversion signals and outputs 13 unique notes/signals (`chord-mold`)<br>
+<img src="/images/misc/green.png" width="20" height="16" /> Loop maker : generates `arpeggio-loop` signal from active `pattern-length` & various Clock signals<br>
+<img src="/images/misc/cyan.png" width="20" height="16" /> Pattern bank : generates the final `arpeggio` signal from `arpeggio-loop` and `chord-mold`, in the form of a varying signal sent to the Speakers
 
 #### Root note
 Select `root-note` by setting the ![](/images/screenshots/virtual-signal-R.png) signal in Arpeggiator's input. It follows the chromatic scale starting from A, meaning that 1 = A ; 2 = A# ; 3 = B ; 4 = C etc...
