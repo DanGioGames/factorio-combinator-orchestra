@@ -28,18 +28,26 @@ The Arpeggiator is meant to generate and play arpeggios, given 4 circuit network
 * ![](/images/screenshots/virtual-signal-P.png) sets the arpeggio **pattern** (arpeggio shape & length)
 * ![](/images/screenshots/virtual-signal-O.png) sets a time **offset** for the arpeggio pattern
 
+![](/images/screenshots/virtual-signal-R.png)![](/images/screenshots/virtual-signal-Q.png)![](/images/screenshots/virtual-signal-P.png)![](/images/screenshots/virtual-signal-O.png) input can be automated via the Score component, or set manually via a constant combinator. Although, it needs to be connected to a working [Clock](#clock) to work.
+
 The Arpeggiator is mainly divided into 5 parts :
+
 ![](/images/screenshots/arpeggiator-overview.png)
+* <span style="color:yellow">Speakers</span> : play the processed arpeggios
+* <span style="color:red">Chord inverter</span> : send inversion signals when ![](/images/screenshots/virtual-signal-R.png) increases
+* <span style="color:magenta">Chord bank</span> : generates the *Chord mold* : 13 unique pitches from ![](/images/screenshots/virtual-signal-R.png), ![](/images/screenshots/virtual-signal-Q.png) and inversion signals
+* <span style="color:lime">Loop maker</span> : generates a Loop signal from active pattern length & Clock signals
+* <span style="color:cyan">Pattern bank</span> : generates the final arpeggio from the Loop signal and the Chord mold, in the form of a varying signal sent to the <span style="color:yellow">Speakers</span>.
 
 #### Root note
 Select a root note by setting the ![](/images/screenshots/virtual-signal-R.png) signal in Arpeggiator's input. It follows the chromatic scale starting from A, meaning that 1 = A ; 2 = A# ; 3 = B ; 4 = C etc...
 
 You can go higher than 12 ; setting ![](/images/screenshots/virtual-signal-R.png) to 13, 25 or 37 will also set the root note to A (see [Chromatic scale](https://en.wikipedia.org/wiki/Chromatic_scale)). You can also go lower than 0 but it will break if you go too low.
 
-*Note : the Arpeggiator has an automated chord inverter. It outputs an "inversion key" depending on root note, in order to provide better voice progressions when changing chords. If you're not happy with the chord inversion you get with a given root note, just add or substract 12 to ![](/images/screenshots/virtual-signal-R.png) and you'll get the same chord in a higher or lower inversion.*
+*Note : the Arpeggiator has an automated chord inverter. It outputs inversion signals depending on root note pitch, in order to provide better voice progressions when changing chords. If you're not happy with the chord inversion you get with a given root note, just add or substract 12 to ![](/images/screenshots/virtual-signal-R.png) and you'll get the same chord in a higher or lower inversion.*
 
 #### Chord type
-Select a chord type by setting the ![](/images/screenshots/virtual-signal-Q.png) virtual signal in Arpeggiator's input. The *chord molder* will process **root-note**, **chord-type** and **inversion-key** into a **chord-mold** composed of 13 pitches.
+Select a chord type by setting the ![](/images/screenshots/virtual-signal-Q.png) virtual signal in Arpeggiator's input. The *Chord bank* will process **root-note**, **chord-type** and **inversion-key** into a **chord-mold** composed of 13 pitches.
 
 Here are the 16 chord types included in the base Arpeggiator :
 
@@ -62,7 +70,7 @@ Here are the 16 chord types included in the base Arpeggiator :
 15| Major add second | <img src="/images/chords/majadd2.png" width="333" height="100" />
 16| Minor add second | <img src="/images/chords/minadd2.png" width="333" height="100" />
 
-*Note : the chord molder doesn't only outputs the 3 or 4 notes showed in the Chord type table. Instead, it duplicates the 3 or 4 base notes in higher octaves multiple times to reach a total of 13 playable notes in the full chord. More Chord types can be added to the base Arpeggiator, see ???*
+*Note : the Chord bank doesn't only outputs the 3 or 4 notes showed in the Chord type table. Instead, it duplicates the 3 or 4 base notes in higher octaves multiple times to reach a total of 13 playable notes in the full Chord mold. More Chord types can be added to the Chord bank, see [Adding new chords](#adding-new-chords).*
 
 #### Pattern
 Select a pattern by setting the ![](/images/screenshots/virtual-signal-P.png) signal in Arpeggiator's input. The **pattern** determines which notes from the *chord mold* are to be played and when.
@@ -88,12 +96,12 @@ Here are the 16 included patterns in the base Arpeggiator :
 15| 16| <img src="/images/patterns/arp-15.png" width="500" height="100" />
 16| 32| <img src="/images/patterns/arp-16.png" width="500" height="100" />
 
-*Note : more patterns can be added to the base Arpeggiator, see ???*
+*Note : more patterns can be added to the Pattern bank, see [Adding new patterns](#adding-new-patterns).*
 
 #### Offset
 
 Select an offset by setting the ![](/images/screenshots/virtual-signal-O.png) signal in Arpeggiator's input. The **offset** will make the pattern play earlier or later.
 
-#### Adding new chords
+#### <a name="adding-new-chords"></a>Adding new chords
 
-#### Adding new patterns
+#### <a name="adding-new-patterns"></a>
