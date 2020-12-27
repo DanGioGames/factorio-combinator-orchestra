@@ -23,7 +23,7 @@ Some signals will be expressed as `variables` or `[arrays]` to improve readabili
 The Clock is the  central component of the Factorio Music Machine. It outputs various signals which carry information about time structure (bars, beats, beat decomposition) to the other components.
 
 
-4 variables are to be set in the constant combinator near the substation :<br>
+4 variables are to be set in the input constant combinator (near the substation) :<br>
 * <img src="/images/screenshots/virtual-signal-T.png" width="24" height="24"/> sets the `tempo` (expressed in beats per minute)
 * <img src="https://wiki.factorio.com/images/thumb/Heavy_oil_barrel.png/48px-Heavy_oil_barrel.png" width="24" height="24"/> sets `beat-decomposition` : 4 for simple meter, 6 for compound meter (you can also set unusual decompositions like 5 or 11)
 * <img src="https://wiki.factorio.com/images/thumb/Crude_oil_barrel.png/48px-Crude_oil_barrel.png" width="24" height="24"/> sets the `beats-per-bar` number
@@ -31,19 +31,21 @@ The Clock is the  central component of the Factorio Music Machine. It outputs va
 
 This constant combinator can also be used as a switch. When turned off, it effectively shuts down the Clock.
 
-It outputs `[clock]`, which are 11 different signals at once, corresponding to various rhythmic informations :
-* <img src="https://wiki.factorio.com/images/thumb/Automation_science_pack.png/48px-Automation_science_pack.png" width="24" height="24"/>  = 16th notes count, goes from 1 to ... (end of clock cycle)
-* <img src="https://wiki.factorio.com/images/thumb/Logistic_science_pack.png/48px-Logistic_science_pack.png" width="24" height="24"/> =  8th notes count, goes from 1 to ...
-* <img src="https://wiki.factorio.com/images/thumb/Military_science_pack.png/48px-Military_science_pack.png" width="24" height="24"/> =  beats count, goes from 1 to ...
-* <img src="https://wiki.factorio.com/images/thumb/Chemical_science_pack.png/48px-Chemical_science_pack.png" width="24" height="24"/> =  groups of 2 beats count, goes from 1 to ...
-* <img src="https://wiki.factorio.com/images/thumb/Production_science_pack.png/48px-Production_science_pack.png" width="24" height="24"/> =  bars count, goes from 1 to ...
-* <img src="https://wiki.factorio.com/images/thumb/Utility_science_pack.png/48px-Utility_science_pack.png" width="24" height="24"/> =  groups of 2 bars count, goes from 1 to ...
-* <img src="https://wiki.factorio.com/images/thumb/Space_science_pack.png/48px-Space_science_pack.png" width="24" height="24"/> =  groups of 4 bars count, goes from 1 to ...
-* <img src="https://wiki.factorio.com/images/thumb/Heavy_oil_barrel.png/48px-Heavy_oil_barrel.png" width="24" height="24"/> =  16th notes in beat, goes from 1 to `beat-decomposition` over and over (eg. if there's 4 sixteenth notes per beat, it goes from 1 through 4)
-* <img src="https://wiki.factorio.com/images/thumb/Empty_barrel.png/48px-Empty_barrel.png" width="24" height="24"/> =  beats, goes from 1 to 2 over and over
-* <img src="https://wiki.factorio.com/images/thumb/Crude_oil_barrel.png/48px-Crude_oil_barrel.png" width="24" height="24"/> =  beats in bar, goes from 1 to `beats-per-bar` over and over (eg. if there's 5 beats per bar, it goes from 1 through 5)
-* <img src="https://wiki.factorio.com/images/thumb/Petroleum_gas_barrel.png/48px-Petroleum_gas_barrel.png" width="24" height="24"/> =  bars in groups of 4 bars, goes from 1 to 4 over and over
+It outputs 11 different signals at once (referenced as `[clock]` in this manual), corresponding to various rhythmic informations :
+* <img src="https://wiki.factorio.com/images/thumb/Automation_science_pack.png/48px-Automation_science_pack.png" width="24" height="24"/>  = 16th note count, goes from 1 to ... (end of clock cycle)
+* <img src="https://wiki.factorio.com/images/thumb/Logistic_science_pack.png/48px-Logistic_science_pack.png" width="24" height="24"/> =  8th note count, goes from 1 to ...
+* <img src="https://wiki.factorio.com/images/thumb/Military_science_pack.png/48px-Military_science_pack.png" width="24" height="24"/> =  beat count, goes from 1 to ...
+* <img src="https://wiki.factorio.com/images/thumb/Chemical_science_pack.png/48px-Chemical_science_pack.png" width="24" height="24"/> =  group of 2 beats count, goes from 1 to ...
+* <img src="https://wiki.factorio.com/images/thumb/Production_science_pack.png/48px-Production_science_pack.png" width="24" height="24"/> =  bar count, goes from 1 to ...
+* <img src="https://wiki.factorio.com/images/thumb/Utility_science_pack.png/48px-Utility_science_pack.png" width="24" height="24"/> =  group of 2 bars count, goes from 1 to ...
+* <img src="https://wiki.factorio.com/images/thumb/Space_science_pack.png/48px-Space_science_pack.png" width="24" height="24"/> =  group of 4 bars count, goes from 1 to ...
+* <img src="https://wiki.factorio.com/images/thumb/Heavy_oil_barrel.png/48px-Heavy_oil_barrel.png" width="24" height="24"/> =  16th note count in one beat, goes from 1 to `beat-decomposition` over and over (eg. if there's 4 sixteenth notes per beat, it goes from 1 through 4)
+* <img src="https://wiki.factorio.com/images/thumb/Empty_barrel.png/48px-Empty_barrel.png" width="24" height="24"/> =  beat count in group of 2 beats, goes from 1 to 2 over and over
+* <img src="https://wiki.factorio.com/images/thumb/Crude_oil_barrel.png/48px-Crude_oil_barrel.png" width="24" height="24"/> =  beat count in one bar, goes from 1 to `beats-per-bar` over and over (eg. if there's 5 beats per bar, it goes from 1 through 5)
+* <img src="https://wiki.factorio.com/images/thumb/Petroleum_gas_barrel.png/48px-Petroleum_gas_barrel.png" width="24" height="24"/> =  bar count in group of 4 bars, goes from 1 to 4 over and over
 
+### <a name="score"></a>Score
+The Score is where you write complex tunes by defining which instructions are to be sent to the Music Machines instruments and when. It will output these instructions according to the `[clock]` signals.
 
 ### <a name="arpeggiator"></a>Arpeggiator
 #### Overview
@@ -77,7 +79,7 @@ Select `root-note` by setting <img src="/images/screenshots/virtual-signal-R.png
 
 You can go higher than 12 ; setting <img src="/images/screenshots/virtual-signal-R.png" width="24" height="24"/> to 13, 25 or 37 will also set the `root-note` to A (see <a href="https://en.wikipedia.org/wiki/Chromatic_scale" target="_blank">Chromatic scale</a>). You can also go lower than 0 but going too low will result in out of range, silent notes from the Speakers.
 
-*Note : the Arpeggiator has an automated Chord inverter. It outputs inversion signals depending on `root-note` value, in order to provide better voice progressions when changing chords. If you're not happy with the chord inversion you get with a given root note, just add or substract 12 to <img src="/images/screenshots/virtual-signal-R.png" width="24" height="24"/> and you'll get the same chord in a higher or lower inversion.*
+*Note : the Arpeggiator has an automated Chord inverter. It outputs `[inversion]` signals depending on `root-note` value, in order to provide better voice progressions when changing chords. If you're not happy with the chord inversion you get with a given root note, just add or substract 12 to <img src="/images/screenshots/virtual-signal-R.png" width="24" height="24"/> and you'll get the same chord in a higher or lower inversion.*
 
 #### Chord type
 Select `chord-type` by setting <img src="/images/screenshots/virtual-signal-Q.png" width="24" height="24"/> in Arpeggiator's input. The chord type will determine the pitch of 12 unique `chord-mold` notes, relative to the `root-note`.
@@ -136,5 +138,7 @@ Here are the 16 included patterns in the base Arpeggiator :
 Select `offset` by setting <img src="/images/screenshots/virtual-signal-O.png" width="24" height="24"/> in Arpeggiator's input. The offset will delay or advance the pattern by given amount of breves (sixteenth notes).
 
 #### <a name="adding-new-chords"></a>Adding new chords
+To add new chords to the Chord bank, you need to place the Arpeggiator-Chord-bank-extension blueprint. Placing this blueprint adds 8 new `chord-type` entries in the Chord-bank, referenced as 17-24.
 
 #### <a name="adding-new-patterns"></a>Adding new patterns
+To add new patterns to the Pattern bank, you need to place the Arpeggiator-Pattern-bank-extension blueprint.
