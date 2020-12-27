@@ -14,22 +14,24 @@ This user manual is meant to explain how to use each component to create music a
 ### Syntax rules
 Virtual signals like <img src="/images/screenshots/virtual-signal-R.png" width="24" height="24"/> are represented by their ingame image. Non-image, text letters like A, F, G represent **music notes** following the <a href="https://en.wikipedia.org/wiki/Musical_note#12-tone_chromatic_scale" target="_blank">English notes naming convention</a>.
 
+Some signals will be expressed as `variables` or `[arrays]` to improve readability.
+
 ## <a name="components"></a>Components
 
 ### <a name="clock"></a>Clock
 <img align="right" src="/images/screenshots/clock-overview.gif" alt="the Clock in its working state" width="240" height="240" />
-The Clock is a key component of the Factorio Music Machine. It outputs various signals which carry information about time structure (bars, beats, beat decomposition) to the other components.
+The Clock is the  central component of the Factorio Music Machine. It outputs various signals which carry information about time structure (bars, beats, beat decomposition) to the other components.
 
 
 4 variables are to be set in the constant combinator near the substation :<br>
 * <img src="/images/screenshots/virtual-signal-T.png" width="24" height="24"/> sets the `tempo` (expressed in beats per minute)
-* <img src="https://wiki.factorio.com/images/thumb/Heavy_oil_barrel.png/48px-Heavy_oil_barrel.png" width="24" height="24"/> sets `beat-decomposition` :  2 or 4 for simple meter, 3 or 6 for compound meter (you can also set weird decompositions like 5 or 11 if you want)
+* <img src="https://wiki.factorio.com/images/thumb/Heavy_oil_barrel.png/48px-Heavy_oil_barrel.png" width="24" height="24"/> sets `beat-decomposition` : 4 for simple meter, 6 for compound meter (you can also set unusual decompositions like 5 or 11)
 * <img src="https://wiki.factorio.com/images/thumb/Crude_oil_barrel.png/48px-Crude_oil_barrel.png" width="24" height="24"/> sets the `beats-per-bar` number
 * <img src="https://wiki.factorio.com/images/thumb/Petroleum_gas_barrel.png/48px-Petroleum_gas_barrel.png" width="24" height="24"/> sets the length of the clock cycle in bars (this will basically define your tune length)
 
 This constant combinator can also be used as a switch. When turned off, it effectively shuts down the Clock.
 
-The Clock outputs 11 different signals at once, corresponding to various rhythmic informations :
+It outputs `[clock]`, which are 11 different signals at once, corresponding to various rhythmic informations :
 * <img src="https://wiki.factorio.com/images/thumb/Automation_science_pack.png/48px-Automation_science_pack.png" width="24" height="24"/>  = 16th notes count, goes from 1 to ... (end of clock cycle)
 * <img src="https://wiki.factorio.com/images/thumb/Logistic_science_pack.png/48px-Logistic_science_pack.png" width="24" height="24"/> =  8th notes count, goes from 1 to ...
 * <img src="https://wiki.factorio.com/images/thumb/Military_science_pack.png/48px-Military_science_pack.png" width="24" height="24"/> =  beats count, goes from 1 to ...
@@ -45,23 +47,30 @@ The Clock outputs 11 different signals at once, corresponding to various rhythmi
 
 ### <a name="arpeggiator"></a>Arpeggiator
 #### Overview
-The Arpeggiator is meant to generate and play arpeggios, given 4 circuit network input signals (see
-<a href="https://en.wikipedia.org/wiki/Chord_(music)" target="_blank">Chord</a>) :
-* <img src="/images/screenshots/virtual-signal-R.png" width="24" height="24"/> sets `root-note`
-* <img src="/images/screenshots/virtual-signal-Q.png" width="24" height="24"/> sets `chord-type`
-* <img src="/images/screenshots/virtual-signal-P.png" width="24" height="24"/> sets the arpeggio `pattern`
-* <img src="/images/screenshots/virtual-signal-O.png" width="24" height="24"/> sets an `offset` for the arpeggio pattern
-
-<img src="/images/screenshots/virtual-signal-R.png" width="24" height="24"/><img src="/images/screenshots/virtual-signal-Q.png" width="24" height="24"/><img src="/images/screenshots/virtual-signal-P.png" width="24" height="24"/><img src="/images/screenshots/virtual-signal-O.png" width="24" height="24"/> input can be automated via the Score, or set manually via a constant combinator. Although, it needs to be connected to the [Clock](#clock) to work.
+The Arpeggiator generates and plays arpeggios when it receives `[arpeggio-ID]` and `[clock]` signals .
 
 The Arpeggiator is mainly divided into 5 parts :
 
 ![](/images/screenshots/arpeggiator-overview.png)
 <img src="/images/misc/yellow.png" width="20" height="16" /> Speakers : produce the sound from the `arpeggio` signal<br>
-<img src="/images/misc/red.png" width="20" height="16" /> Chord inverter : send various inversion signals to the Chord bank when `root-note` increases to make chord changes less brutal<br>
-<img src="/images/misc/magenta.png" width="20" height="16" /> Chord bank : processes `root-note`, `chord-type` and inversion signals and outputs 13 unique notes/signals (`chord-mold`)<br>
-<img src="/images/misc/green.png" width="20" height="16" /> Loop maker : generates `arpeggio-loop` signal from active `pattern-length` & various Clock signals<br>
-<img src="/images/misc/cyan.png" width="20" height="16" /> Pattern bank : generates the final `arpeggio` signal from `arpeggio-loop` and `chord-mold`, in the form of a varying signal sent to the Speakers
+<img src="/images/misc/red.png" width="20" height="16" /> Chord inverter : send `[inversion]` signals to the Chord bank when `root-note` increases to make chord changes less brutal<br>
+<img src="/images/misc/magenta.png" width="20" height="16" /> Chord bank : processes `root-note`, `chord-type` and `[inversion]` signals and outputs `[chord-mold]` (13 unique notes/signals)<br>
+<img src="/images/misc/green.png" width="20" height="16" /> Loop maker : generates `arpeggio-loop` signal from `pattern-length` and `[clock]` signals<br>
+<img src="/images/misc/cyan.png" width="20" height="16" /> Pattern bank : receive `pattern`, send back `pattern-length` to the Loop maker, and generates the final `arpeggio` signal from `arpeggio-loop` and `chord-mold`
+
+#### Circuit network input
+
+`[clock]` needs to be sent via <img src="https://wiki.factorio.com/images/thumb/Red_wire.png/48px-Red_wire.png" width="24" height="24"/> by a working [**Clock**](#clock).
+
+`[arpeggio-ID]` needs to be sent via <img src="https://wiki.factorio.com/images/thumb/Green_wire.png/48px-Green_wire.png" width="24" height="24"/>, either by the **Score** in a automated way (if you want to create a whole tune) or simply by a constant combinator (if you want to test the Arpeggiator).
+
+Both wires <img src="https://wiki.factorio.com/images/thumb/Red_wire.png/48px-Red_wire.png" width="24" height="24"/><img src="https://wiki.factorio.com/images/thumb/Green_wire.png/48px-Green_wire.png" width="24" height="24"/> need to be connected to any of the 2 big power poles near the Speakers.
+
+`[arpeggio-ID]` is defined by 4 signals (see <a href="https://en.wikipedia.org/wiki/Chord_(music)" target="_blank">Chord</a>) :
+* <img src="/images/screenshots/virtual-signal-R.png" width="24" height="24"/> sets `root-note`
+* <img src="/images/screenshots/virtual-signal-Q.png" width="24" height="24"/> sets `chord-type`
+* <img src="/images/screenshots/virtual-signal-P.png" width="24" height="24"/> sets the arpeggio `pattern`
+* <img src="/images/screenshots/virtual-signal-O.png" width="24" height="24"/> sets an `offset` for the arpeggio pattern
 
 #### Root note
 Select `root-note` by setting <img src="/images/screenshots/virtual-signal-R.png" width="24" height="24"/> in Arpeggiator's input. It follows the chromatic scale starting from A, meaning that 1 = A ; 2 = A# ; 3 = B ; 4 = C etc...
