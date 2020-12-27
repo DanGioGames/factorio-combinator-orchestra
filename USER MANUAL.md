@@ -25,7 +25,7 @@ Some signals will be expressed as `variables` or grouped in `[arrays]` to improv
 - import and place the Clock blueprint and the Score manager blueprint in your game
 - import and place any component base blueprint you want to try
 - connect the Clock and the Score manager to the components inputs, with red wire and green wire respectively.
-- manually set programs in the Score manager, see 
+- manually set programs in the Score manager, see
 
 ## <a name="components"></a>Components
 
@@ -54,7 +54,7 @@ It outputs 11 different signals at once (referenced as `[clock]` in this manual)
 * <img src="https://wiki.factorio.com/images/thumb/Crude_oil_barrel.png/48px-Crude_oil_barrel.png" width="24" height="24"/> =  beat count in one bar, goes from 1 to `beats-per-bar` over and over (eg. if there's 5 beats per bar, it goes from 1 through 5)
 * <img src="https://wiki.factorio.com/images/thumb/Petroleum_gas_barrel.png/48px-Petroleum_gas_barrel.png" width="24" height="24"/> =  bar count in group of 4 bars, goes from 1 to 4 over and over
 
-*This effectively means that programming complex tunes in the Factorio Music Machine should follow this time structure : x bars divided into y beats divided into z breves (or sixteenth notes)*
+*This effectively means that programming tunes in the Factorio Music Machine should follow this time structure : x bars divided into y beats divided into z breves (or sixteenth notes)*
 
 ### <a name="score-manager"></a>Score manager
 #### Overview
