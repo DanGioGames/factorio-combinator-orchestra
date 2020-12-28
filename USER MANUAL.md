@@ -1,5 +1,3 @@
-<link href="style.css" rel="stylesheet"></link>
-
 # Factorio Music Machine - User manual
 
 ## Table of contents
