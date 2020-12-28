@@ -30,8 +30,23 @@ Some signals will be expressed as `variables` or grouped in `[arrays]` to improv
 5. Manually set programs in the Score manager, see (reference needed here)
 
 ## <a name="components"></a>Components
-
 ### <a name="clock"></a>Clock
+<input type="text" value="Hello world" id="myInput">
+<button onclick="myFunction()">Copy text</button>
+
+
+<script>
+
+function myFunction() {
+  var copyText = document.getElementById("myInput");
+  copyText.select();
+  copyText.setSelectionRange(0, 99999)
+  document.execCommand("copy");
+  alert("Copied the text: " + copyText.value);
+}
+</script>
+
+
 <img align="right" src="/images/screenshots/clock-overview.gif" alt="the Clock in its working state" width="240" height="240" />
 The Clock is the  central component of the Factorio Music Machine. It outputs various signals which carry information about time structure (bars, beats, beat decomposition) to the other components.
 
@@ -102,7 +117,6 @@ Each program has and indicator lights with 3 possible states :
 * <img src="/images/misc/green.png" width="20" height="16" /> green light means a program is being sent to the components
 
 #### Expanding the timeline
-
 The score-manager-base blueprint comes with 4 bars of music timelines. In order to program longer tunes, use the score-manager-timeline-extension blueprint, by placing it so that the bottom substation overlap with the previous one. Each placement will add 4 bars to the timelines ("Snap to grid" has been activated to ease multiple placements of the blueprint).
 
 <img src="/images/screenshots/score-manager-timeline-extension.png"/>
@@ -121,7 +135,6 @@ The Arpeggiator is mainly divided into 5 parts :
 <img src="/images/misc/cyan.png" width="20" height="16" /> Pattern library : receive `pattern`, send back `pattern-length` to the Loop maker, and generates the final `arpeggio` signal from `arpeggio-loop` and `[chord-mold]`
 
 #### Circuit network input
-
 `[clock]` is sent by the [**Clock**](#clock) via <img src="https://wiki.factorio.com/images/thumb/Red_wire.png/48px-Red_wire.png" width="24" height="24"/>
 
 `[arpeggio-ID]` is sent by the [**Score manager**](#score-manager) via <img src="https://wiki.factorio.com/images/thumb/Green_wire.png/48px-Green_wire.png" width="24" height="24"/>.
@@ -194,7 +207,6 @@ Here are the 16 included patterns in the base Arpeggiator :
 *Note : more patterns can be added to the Pattern library, see [Adding new patterns](#adding-new-patterns).*
 
 #### Offset
-
 Select `offset` by setting <img src="/images/screenshots/virtual-signal-O.png" width="24" height="24"/> in Arpeggiator's input. The offset will delay or advance the pattern by given amount of breves (sixteenth notes).
 
 #### <a name="adding-new-chords"></a>Adding new chords
@@ -202,7 +214,3 @@ To add new chords to the Chord library, you need to place the arpeggiator-chord-
 
 #### <a name="adding-new-patterns"></a>Adding new patterns
 To add new patterns to the Pattern library, you need to place the arpeggiator-pattern-library-extension blueprint.
-
-### <a name="divatron"></a>Divatron
-#### Overview
-The Divatron generates long tones when it receives [D] signal. It will only play one tone at a time.
