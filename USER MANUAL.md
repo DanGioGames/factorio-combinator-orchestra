@@ -28,7 +28,7 @@ Some signals will be expressed as `variables` or grouped in `[arrays]` to improv
 5. Manually set programs in the Score manager, see (reference needed here)
 
 ## <a name="components"></a>Components
-### <a name="clock"></a>Clock
+### <a name="clock"></a>Clock [<img src="https://wiki.factorio.com/images/thumb/Blueprint.png/32px-Blueprint.png" width="24" height="24" />](https://github.com/DanGioGames/factoriomusicmachine/raw/main/blueprints/clock-base)
 
 <img align="right" src="/images/screenshots/clock-overview.gif" alt="the Clock in its working state" width="240" height="240" />
 The Clock is the  central component of the Factorio Music Machine. It outputs various signals which carry information about time structure (bars, beats, beat decomposition) to the other components.
@@ -54,7 +54,7 @@ It outputs 11 different signals at once (referenced as `[clock]` in this manual)
 
 *This effectively means that programming tunes in the Factorio Music Machine should follow this time structure : x bars divided into y beats divided into z breves (or sixteenth notes)*
 
-### <a name="score-manager"></a>Score manager
+### <a name="score-manager"></a>Score manager [<img src="https://wiki.factorio.com/images/thumb/Blueprint.png/32px-Blueprint.png" width="24" height="24" />](https://github.com/DanGioGames/factoriomusicmachine/raw/main/blueprints/score-manager-base)
 #### Overview
 The Score manager sends instructions like `[arpeggio-ID]` via <img src="https://wiki.factorio.com/images/thumb/Green_wire.png/48px-Green_wire.png" width="24" height="24"/> to the different Music Machine components. Those instructions are referenced here as *programs*.
 
@@ -83,7 +83,7 @@ Auto mode will make the Score manager read `[clock]` and output preset programs 
 
 Activate auto mode with the mode switch (mode indicator light should be green) and add programs to the component timelines. Adding a program goes into 3 steps :
 
-1. place the score-manager-program-addon blueprint somewhere on a component timeline :
+1. place the score-manager-program-addon blueprint [<img src="https://wiki.factorio.com/images/thumb/Blueprint.png/32px-Blueprint.png" width="24" height="24" />](https://github.com/DanGioGames/factoriomusicmachine/raw/main/blueprints/score-manager-program-addon) somewhere on a component timeline :
 <img src="/images/screenshots/score-manager-program-addon.png" width="435" height="335"/>
 
 
@@ -100,11 +100,11 @@ Each program has and indicator lights with 3 possible states :
 * <img src="/images/misc/green.png" width="20" height="16" /> green light means a program is being sent to the components
 
 #### Expanding the timeline
-The score-manager-base blueprint comes with 4 bars of music timelines. In order to program longer tunes, use the score-manager-timeline-extension blueprint, by placing it so that the bottom substation overlap with the previous one. Each placement will add 4 bars to the timelines ("Snap to grid" has been activated to ease multiple placements of the blueprint).
+The score-manager-base blueprint comes with 4 bars of music timelines. In order to program longer tunes, use the score-manager-timeline-extension blueprint [<img src="https://wiki.factorio.com/images/thumb/Blueprint.png/32px-Blueprint.png" width="24" height="24" />](https://github.com/DanGioGames/factoriomusicmachine/raw/main/blueprints/score-manager-timeline-extension) by placing it so that the bottom substation overlap with the previous one. Each placement will add 4 bars to the timelines ("Snap to grid" has been activated to ease multiple placements of the blueprint).
 
 <img src="/images/screenshots/score-manager-timeline-extension.png"/>
 
-### <a name="arpeggiator"></a>Arpeggiator [<img src="https://wiki.factorio.com/images/thumb/Blueprint.png/32px-Blueprint.png"/>](https://github.com/DanGioGames/factoriomusicmachine/raw/main/blueprints/arpeggiator-base)
+### <a name="arpeggiator"></a>Arpeggiator [<img src="https://wiki.factorio.com/images/thumb/Blueprint.png/32px-Blueprint.png" width="24" height="24" />](https://github.com/DanGioGames/factoriomusicmachine/raw/main/blueprints/arpeggiator-base)
 #### Overview
 The Arpeggiator generates and plays arpeggios when it receives `[arpeggio-ID]` and `[clock]` signals.
 
