@@ -1,3 +1,8 @@
+<html>
+<head>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
 # Factorio Music Machine - User manual
 
 ## Table of contents
