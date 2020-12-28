@@ -6,6 +6,7 @@
 <button onclick="myFunction()">Copy text</button>
 
 <script>
+  
 function myFunction() {
   var copyText = document.getElementById("myInput");
   copyText.select();
