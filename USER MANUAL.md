@@ -104,7 +104,7 @@ The score-manager-base blueprint comes with 4 bars of music timelines. In order 
 
 <img src="/images/screenshots/score-manager-timeline-extension.png"/>
 
-### <a name="arpeggiator"></a>Arpeggiator
+### <a name="arpeggiator"></a>Arpeggiator [<img src="https://wiki.factorio.com/images/thumb/Blueprint.png/32px-Blueprint.png"/>](https://github.com/DanGioGames/factoriomusicmachine/raw/main/blueprints/arpeggiator-base)
 #### Overview
 The Arpeggiator generates and plays arpeggios when it receives `[arpeggio-ID]` and `[clock]` signals.
 
