@@ -1,6 +1,8 @@
-# Factorio Music Machine - User Manual
+<link href="style.css" rel="stylesheet"></link>
 
-## Table of Contents
+# Factorio Music Machine - User manual
+
+## Table of contents
 1. [Introduction](#introduction)
 2. [Quick setup](#quick-setup)
 3. [Components](#components)
@@ -21,11 +23,11 @@ Some signals will be expressed as `variables` or grouped in `[arrays]` to improv
 **Instrument** refers to the instrument selected in the programmable speaker GUI. **Component** refers a Music Machine part like the Arpeggiator.
 
 ## <a name="quick-setup"></a>Quick setup
-- in Factorio, switch to editor mode by entering /editor in the console
-- import and place the Clock blueprint and the Score manager blueprint in your game
-- import and place any component base blueprint you want to try
-- connect the Clock and the Score manager to the components inputs, with red wire and green wire respectively.
-- manually set programs in the Score manager, see
+1. In Factorio, switch to editor mode by entering /editor in the console
+2. Import and place both Clock and Score manager blueprints in your game
+3. Import and place at least one other component blueprint
+4. Connect Clock and Score manager to the components inputs, with red wire and green wire respectively
+5. Manually set programs in the Score manager, see (reference needed here)
 
 ## <a name="components"></a>Components
 
@@ -36,7 +38,7 @@ The Clock is the  central component of the Factorio Music Machine. It outputs va
 4 variables are to be set in the input constant combinator (near the substation) :<br>
 * <img src="/images/screenshots/virtual-signal-T.png" width="24" height="24"/> sets the `tempo` (expressed in beats per minute)
 * <img src="https://wiki.factorio.com/images/thumb/Heavy_oil_barrel.png/48px-Heavy_oil_barrel.png" width="24" height="24"/> sets `beat-decomposition` : 4 for simple meter, 6 for compound meter (you can also set unusual decompositions like 5 or 11)
-* <img src="https://wiki.factorio.com/images/thumb/Crude_oil_barrel.png/48px-Crude_oil_barrel.png" width="24" height="24"/> sets the `beats-per-bar` number
+* <img src="https://wiki.factorio.com/images/thumb/Crude_oil_barrel.png/48px-Crude_oil_barrel.png" width="24" height="24"/> sets the `beats-per-bar` number, pick a number greater than 0 but smaller than 9.
 * <img src="https://wiki.factorio.com/images/thumb/Petroleum_gas_barrel.png/48px-Petroleum_gas_barrel.png" width="24" height="24"/> sets the length of the clock cycle in bars (this will basically define your tune length)
 
 This constant combinator can also be used as a switch. When turned off, it effectively shuts down the Clock.
@@ -58,25 +60,43 @@ It outputs 11 different signals at once (referenced as `[clock]` in this manual)
 
 ### <a name="score-manager"></a>Score manager
 #### Overview
-The Score manager sends instructions like `[arpeggio-ID]` via <img src="https://wiki.factorio.com/images/thumb/Green_wire.png/48px-Green_wire.png" width="24" height="24"/> to the different Music Machine components. Those instructions are referred here as *programs*.
+The Score manager sends instructions like `[arpeggio-ID]` via <img src="https://wiki.factorio.com/images/thumb/Green_wire.png/48px-Green_wire.png" width="24" height="24"/> to the different Music Machine components. Those instructions are referenced here as *programs*.
 
 The Score manager has 2 working modes :
-- manual : set programs manually for each component, good for testing and playing around with components
-- auto : write a series of programs to be sent following a timeline (`[clock]` signals)
+- manual : send the programs set in manual controllers
+- auto : send a series of programs placed in each component timelines
 
-#### Score timeline
-The Score timeline is a *[x,y]* graph made from lights where *x* represent time measured in bars (<img src="https://wiki.factorio.com/images/thumb/Production_science_pack.png/48px-Production_science_pack.png" width="24" height="24"/>) and each *y* line represent one component.
+<div class="frame">
+      <img src="/images/screenshots/score-manager-overview.png">
+</div>
 
-Each light has 3 possible states :
-* light off means that no program is set for that bar
-* <img src="/images/misc/blue.png" width="20" height="16" />blue light means that a program is set for that bar # but not actually being sent
-* <img src="/images/misc/cyan.png" width="20" height="16" /> cyan light means a `[program]` is being sent to the components
+1. Score manager input & output
+2. manual/auto mode switch
+3. manual/auto mode indicator light
+4. Arpeggiator manual controller
+5. `[arpeggio-ID]` indicator light<br><br>
+<img src="/images/misc/red.png" width="20" height="16" /> Global timeline<br>
+<img src="/images/misc/yellow.png" width="20" height="16" /> Arpeggiator timeline
 
-#### Expanding the Timeline
+
+#### Manual mode
+Manual mode is for testing and playing around purpose. Activate manual mode with the mode switch (mode indicator light should be yellow), and enter instructions in the manual controllers.
+
+#### Auto mode
+Auto mode will make the Score manager read `[clock]` and output preset programs to the components. It is useful when you want to write complex tunes for the Music Machine.
+
+Activate auto mode with the mode switch (mode indicator light should be green) and place programs on component timelines with the score-manager-program-addon blueprint.
+
+Program indicator lights have 3 possible states :
+* light off means that no program is set
+* <img src="/images/misc/blue.png" width="20" height="16" /> blue light means that a program is set but not actually being sent to the components
+* <img src="/images/misc/green.png" width="20" height="16" /> green light means a program is being sent to the components
+
+#### Expanding the timeline
 
 ### <a name="arpeggiator"></a>Arpeggiator
 #### Overview
-The Arpeggiator generates and plays arpeggios when it receives `[arpeggio-ID]` and `[clock]` signals .
+The Arpeggiator generates and plays arpeggios when it receives `[arpeggio-ID]` and `[clock]` signals.
 
 The Arpeggiator is mainly divided into 5 parts :
 
@@ -91,7 +111,7 @@ The Arpeggiator is mainly divided into 5 parts :
 
 `[clock]` is sent by the [**Clock**](#clock) via <img src="https://wiki.factorio.com/images/thumb/Red_wire.png/48px-Red_wire.png" width="24" height="24"/>
 
-`[arpeggio-ID]` is sent by the [**Score manager**](#Score-manager) via <img src="https://wiki.factorio.com/images/thumb/Green_wire.png/48px-Green_wire.png" width="24" height="24"/>.
+`[arpeggio-ID]` is sent by the [**Score manager**](#score-manager) via <img src="https://wiki.factorio.com/images/thumb/Green_wire.png/48px-Green_wire.png" width="24" height="24"/>.
 
 Both wires <img src="https://wiki.factorio.com/images/thumb/Red_wire.png/48px-Red_wire.png" width="24" height="24"/><img src="https://wiki.factorio.com/images/thumb/Green_wire.png/48px-Green_wire.png" width="24" height="24"/> need to be connected to any of the 2 big power poles near the Speakers.
 
@@ -169,3 +189,7 @@ To add new chords to the Chord library, you need to place the arpeggiator-chord-
 
 #### <a name="adding-new-patterns"></a>Adding new patterns
 To add new patterns to the Pattern library, you need to place the arpeggiator-pattern-library-extension blueprint.
+
+### <a name="divatron"></a>Divatron
+#### Overview
+The Divatron generates long tones when it receives [D] signal. It will only play one tone at a time.
