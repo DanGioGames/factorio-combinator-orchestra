@@ -1,21 +1,5 @@
 <link href="style.css" rel="stylesheet"></link>
 
-<p>Click on the button to copy the text from the text field. Try to paste the text (e.g. ctrl+v) afterwards in a different window, to see the effect.</p>
-
-<input type="text" value="Hello World" id="myInput">
-<button onclick="myFunction()">Copy text</button>
-
-<script>
-  
-function myFunction() {
-  var copyText = document.getElementById("myInput");
-  copyText.select();
-  copyText.setSelectionRange(0, 99999)
-  document.execCommand("copy");
-  alert("Copied the text: " + copyText.value);
-}
-</script>
-
 # Factorio Music Machine - User manual
 
 ## Table of contents
@@ -47,21 +31,6 @@ Some signals will be expressed as `variables` or grouped in `[arrays]` to improv
 
 ## <a name="components"></a>Components
 ### <a name="clock"></a>Clock
-<input type="text" value="Hello world" id="myInput">
-<button onclick="myFunction()">Copy text</button>
-
-
-<script>
-
-function myFunction() {
-  var copyText = document.getElementById("myInput");
-  copyText.select();
-  copyText.setSelectionRange(0, 99999)
-  document.execCommand("copy");
-  alert("Copied the text: " + copyText.value);
-}
-</script>
-
 
 <img align="right" src="/images/screenshots/clock-overview.gif" alt="the Clock in its working state" width="240" height="240" />
 The Clock is the  central component of the Factorio Music Machine. It outputs various signals which carry information about time structure (bars, beats, beat decomposition) to the other components.
