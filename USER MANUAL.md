@@ -2,7 +2,7 @@
 <html>
 
 <head>
-  <link rel="stylesheet" href="/resources/styles.css">
+  <link rel="stylesheet" href="resources/styles.css">
 </head>
 
 <body>
