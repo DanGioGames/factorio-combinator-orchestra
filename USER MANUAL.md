@@ -18,7 +18,7 @@ This user manual is meant to explain how to use each component to create music a
 ### Lexic & syntax rules
 Virtual signals like <img src="/images/screenshots/virtual-signal-R.png" width="24" height="24"/> are represented by their ingame image. Non-image, text letters like A, F, G represent **music notes** following the <a href="https://en.wikipedia.org/wiki/Musical_note#12-tone_chromatic_scale" target="_blank">English notes naming convention</a>.
 
-Some signals will be expressed as `variables` or grouped in `[arrays]` to improve this manual readability.
+Some signals will be expressed as `variables` or grouped in `[arrays]` to improve readability.
 
 **Instrument** refers to the instrument selected in the programmable speaker GUI. **Component** refers a Music Machine part like the Arpeggiator.
 
@@ -38,10 +38,8 @@ The Clock is the  central component of the Factorio Music Machine. It outputs va
 4 variables are to be set in the input constant combinator (near the substation) :<br>
 * <img src="/images/screenshots/virtual-signal-T.png" width="24" height="24"/> sets the `tempo` (expressed in beats per minute)
 * <img src="https://wiki.factorio.com/images/thumb/Heavy_oil_barrel.png/48px-Heavy_oil_barrel.png" width="24" height="24"/> sets `beat-decomposition` : 4 for simple meter, 6 for compound meter (you can also set unusual decompositions like 5 or 11)
-* <img src="https://wiki.factorio.com/images/thumb/Crude_oil_barrel.png/48px-Crude_oil_barrel.png" width="24" height="24"/> sets the `beats-per-bar` number, pick a number greater than 0 but smaller than 9.
+* <img src="https://wiki.factorio.com/images/thumb/Crude_oil_barrel.png/48px-Crude_oil_barrel.png" width="24" height="24"/> sets the `beats-per-bar` number
 * <img src="https://wiki.factorio.com/images/thumb/Petroleum_gas_barrel.png/48px-Petroleum_gas_barrel.png" width="24" height="24"/> sets the length of the clock cycle in bars (this will basically define your tune length)
-
-This constant combinator can also be used as a switch. When turned off, it effectively shuts down the Clock.
 
 It outputs 11 different signals at once (referenced as `[clock]` in this manual), corresponding to various rhythmic informations :
 * <img src="https://wiki.factorio.com/images/thumb/Automation_science_pack.png/48px-Automation_science_pack.png" width="24" height="24"/>  = 16th note count, goes from 1 to ... (end of clock cycle)
@@ -80,19 +78,34 @@ The Score manager has 2 working modes :
 
 
 #### Manual mode
-Manual mode is for testing and playing around purpose. Activate manual mode with the mode switch (mode indicator light should be yellow), and enter instructions in the manual controllers.
+Manual mode is for testing and playing around purpose. Activate manual mode with the mode switch (mode indicator light should be yellow), and enter instructions in the manual controllers (each manual controller is preset with empty signals which can be set).
 
 #### Auto mode
 Auto mode will make the Score manager read `[clock]` and output preset programs to the components. It is useful when you want to write complex tunes for the Music Machine.
 
-Activate auto mode with the mode switch (mode indicator light should be green) and place programs on component timelines with the score-manager-program-addon blueprint.
+Activate auto mode with the mode switch (mode indicator light should be green) and add programs to the component timelines. Adding a program goes into 3 steps :
 
-Program indicator lights have 3 possible states :
+1. place the score-manager-program-addon blueprint somewhere on a component timeline :
+<img src="/images/screenshots/score-manager-program-addon.png" width="435" height="335"/>
+
+
+2. Configure instructions in the corresponding constant combinator (*what* you it want to play)
+<img src="/images/screenshots/score-manager-program-addon-2.png"/>
+
+
+3. Configure timing in the corresponding constant combinator (*when* you want it to play) (you can use any of the 11 `[clock]` signals )<br>
+<img src="/images/screenshots/score-manager-program-addon-3.png"/>
+
+Each program has and indicator lights with 3 possible states :
 * light off means that no program is set
 * <img src="/images/misc/blue.png" width="20" height="16" /> blue light means that a program is set but not actually being sent to the components
 * <img src="/images/misc/green.png" width="20" height="16" /> green light means a program is being sent to the components
 
 #### Expanding the timeline
+
+The score-manager-base blueprint comes with 4 bars of music timelines. In order to program longer tunes, use the score-manager-timeline-extension blueprint, by placing it so that the bottom substation overlap with the previous one. Each placement will add 4 bars to the timelines ("Snap to grid" has been activated to ease multiple placements of the blueprint).
+
+<img src="/images/screenshots/score-manager-timeline-extension.png"/>
 
 ### <a name="arpeggiator"></a>Arpeggiator
 #### Overview
