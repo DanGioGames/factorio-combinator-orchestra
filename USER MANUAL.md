@@ -12,6 +12,7 @@
 The purpose of the Factorio Music Machine project is to make music creation in Factorio easier. It consists of multiple blueprints that work together as different components of a big customizable machine.
 
 This user manual is meant to explain how to use each component to create music and how to expand them to suit your musical needs.
+
 <copy-button>test</copy-button>
 
 ### Lexic & syntax rules
