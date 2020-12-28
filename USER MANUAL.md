@@ -1,7 +1,17 @@
+
 <html>
+
 <head>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="/resources/styles.css">
 </head>
+
+<body>
+
+<h1>This is a heading</h1>
+
+<p>This is a paragraph.</p>
+
+</body>
 
 # Factorio Music Machine - User manual
 
