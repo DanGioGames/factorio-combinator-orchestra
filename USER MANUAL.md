@@ -39,7 +39,7 @@ The Clock is the  central component of the Factorio Combinator Orchestra. It out
 * <img src="https://wiki.factorio.com/images/thumb/Crude_oil_barrel.png/48px-Crude_oil_barrel.png" width="24" height="24"/> sets the `beats-per-bar` number
 * <img src="https://wiki.factorio.com/images/thumb/Petroleum_gas_barrel.png/48px-Petroleum_gas_barrel.png" width="24" height="24"/> sets the length of the clock cycle in bars (this will basically define your tune length)
 
-It outputs 11 different signals at once (referenced as `[clock]` in this manual), corresponding to various rhythmic informations :
+It outputs several different signals at once (referenced as `[clock]` in this manual), corresponding to various rhythmic informations :
 * <img src="https://wiki.factorio.com/images/thumb/Automation_science_pack.png/48px-Automation_science_pack.png" width="24" height="24"/>  = 16th note count, goes from 1 to ... (end of clock cycle)
 * <img src="https://wiki.factorio.com/images/thumb/Logistic_science_pack.png/48px-Logistic_science_pack.png" width="24" height="24"/> =  8th note count, goes from 1 to ...
 * <img src="https://wiki.factorio.com/images/thumb/Military_science_pack.png/48px-Military_science_pack.png" width="24" height="24"/> =  beat count, goes from 1 to ...
