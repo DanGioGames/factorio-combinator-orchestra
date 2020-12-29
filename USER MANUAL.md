@@ -1,4 +1,4 @@
-# Factorio Music Machine - User manual
+# Factorio Combinator Orchestra - User manual
 
 ## Table of contents
 1. [Introduction](#introduction)
@@ -9,7 +9,7 @@
     * [Arpeggiator](#arpeggiator)
 
 ## <a name="introduction"></a>Introduction
-The purpose of the Factorio Music Machine project is to make music creation in Factorio easier. It consists of multiple blueprints that work together as different components of a big customizable machine.
+The purpose of the Factorio Combinator Orchestra project is to make music creation in Factorio easier. It consists of multiple blueprints that work together as different components of a big customizable machine.
 
 This user manual is meant to explain how to use each component to create music and how to expand them to suit your musical needs.
 
@@ -18,7 +18,7 @@ Virtual signals like <img src="/images/screenshots/virtual-signal-R.png" width="
 
 Some signals will be expressed as `variables` or grouped in `[arrays]` to improve readability.
 
-**Instrument** refers to the instrument selected in the programmable speaker GUI. **Component** refers a Music Machine part like the Arpeggiator.
+**Instrument** refers to the instrument selected in the programmable speaker GUI. **Component** refers a Combinator Orchestra part like the Arpeggiator.
 
 ## <a name="quick-setup"></a>Quick setup
 1. In Factorio, switch to editor mode by entering /editor in the console
@@ -28,10 +28,10 @@ Some signals will be expressed as `variables` or grouped in `[arrays]` to improv
 5. Manually set programs in the Score manager, see (reference needed here)
 
 ## <a name="components"></a>Components
-### <a name="clock"></a>Clock [<img src="https://wiki.factorio.com/images/thumb/Blueprint.png/32px-Blueprint.png" width="24" height="24" />](https://github.com/DanGioGames/factoriomusicmachine/raw/main/blueprints/clock-base)
+### <a name="clock"></a>Clock [<img src="https://wiki.factorio.com/images/thumb/Blueprint.png/32px-Blueprint.png" width="24" height="24" />](https://github.com/DanGioGames/factorio-combinator-orchestra/raw/main/blueprints/clock-base)
 
 <img align="right" src="/images/screenshots/clock-overview.gif" alt="the Clock in its working state" width="240" height="240" />
-The Clock is the  central component of the Factorio Music Machine. It outputs various signals which carry information about time structure (bars, beats, beat decomposition) to the other components.
+The Clock is the  central component of the Factorio Combinator Orchestra. It outputs various signals which carry information about time structure (bars, beats, beat decomposition) to the other components.
 
 4 variables are to be set in the input constant combinator (near the substation) :<br>
 * <img src="/images/screenshots/virtual-signal-T.png" width="24" height="24"/> sets the `tempo` (expressed in beats per minute)
@@ -52,11 +52,11 @@ It outputs 11 different signals at once (referenced as `[clock]` in this manual)
 * <img src="https://wiki.factorio.com/images/thumb/Crude_oil_barrel.png/48px-Crude_oil_barrel.png" width="24" height="24"/> =  beat count in one bar, goes from 1 to `beats-per-bar` over and over (eg. if there's 5 beats per bar, it goes from 1 through 5)
 * <img src="https://wiki.factorio.com/images/thumb/Petroleum_gas_barrel.png/48px-Petroleum_gas_barrel.png" width="24" height="24"/> =  bar count in group of 4 bars, goes from 1 to 4 over and over
 
-*This effectively means that programming tunes in the Factorio Music Machine should follow this time structure : x bars divided into y beats divided into z breves (or sixteenth notes)*
+*This effectively means that programming tunes in the Combinator Orchestra should follow this time structure : x bars divided into y beats divided into z breves (or sixteenth notes)*
 
-### <a name="score-manager"></a>Score manager [<img src="https://wiki.factorio.com/images/thumb/Blueprint.png/32px-Blueprint.png" width="24" height="24" />](https://github.com/DanGioGames/factoriomusicmachine/raw/main/blueprints/score-manager-base)
+### <a name="score-manager"></a>Score manager [<img src="https://wiki.factorio.com/images/thumb/Blueprint.png/32px-Blueprint.png" width="24" height="24" />](https://github.com/DanGioGames/factorio-combinator-orchestra/raw/main/blueprints/score-manager-base)
 #### Overview
-The Score manager sends instructions like `[arpeggio-ID]` via <img src="https://wiki.factorio.com/images/thumb/Green_wire.png/48px-Green_wire.png" width="24" height="24"/> to the different Music Machine components. Those instructions are referenced here as *programs*.
+The Score manager sends instructions like `[arpeggio-ID]` via <img src="https://wiki.factorio.com/images/thumb/Green_wire.png/48px-Green_wire.png" width="24" height="24"/> to the different Combinator Orchestra components. Those instructions are referenced here as *programs*.
 
 The Score manager has 2 working modes :
 - manual : send the programs set in manual controllers
@@ -79,11 +79,11 @@ The Score manager has 2 working modes :
 Manual mode is for testing and playing around purpose. Activate manual mode with the mode switch (mode indicator light should be yellow), and enter instructions in the manual controllers (each manual controller is preset with empty signals which can be set).
 
 #### Auto mode
-Auto mode will make the Score manager read `[clock]` and output preset programs to the components. It is useful when you want to write complex tunes for the Music Machine.
+Auto mode will make the Score manager read `[clock]` and output preset programs to the components. It is useful when you want to write complex tunes for the Combinator Orchestra.
 
 Activate auto mode with the mode switch (mode indicator light should be green) and add programs to the component timelines. Adding a program goes into 3 steps :
 
-1. place the score-manager-program-addon blueprint [<img src="https://wiki.factorio.com/images/thumb/Blueprint.png/32px-Blueprint.png" width="24" height="24" />](https://github.com/DanGioGames/factoriomusicmachine/raw/main/blueprints/score-manager-program-addon) somewhere on a component timeline :
+1. place the score-manager-program-addon blueprint [<img src="https://wiki.factorio.com/images/thumb/Blueprint.png/32px-Blueprint.png" width="24" height="24" />](https://github.com/DanGioGames/factorio-combinator-orchestra/raw/main/blueprints/score-manager-program-addon) somewhere on a component timeline :
 <img src="/images/screenshots/score-manager-program-addon.png" width="435" height="335"/>
 
 
@@ -91,7 +91,7 @@ Activate auto mode with the mode switch (mode indicator light should be green) a
 <img src="/images/screenshots/score-manager-program-addon-2.png"/>
 
 
-3. Configure timing in the corresponding constant combinator (*when* you want it to play) (you can use any of the 11 `[clock]` signals )<br>
+3. Configure timing in the corresponding constant combinator (*when* you want it to play) (you can use any of the `[clock]` signals)<br>
 <img src="/images/screenshots/score-manager-program-addon-3.png"/>
 
 Each program has and indicator lights with 3 possible states :
@@ -100,11 +100,11 @@ Each program has and indicator lights with 3 possible states :
 * <img src="/images/misc/green.png" width="20" height="16" /> green light means a program is being sent to the components
 
 #### Expanding the timeline
-The score-manager-base blueprint comes with 4 bars of music timelines. In order to program longer tunes, use the score-manager-timeline-extension blueprint [<img src="https://wiki.factorio.com/images/thumb/Blueprint.png/32px-Blueprint.png" width="24" height="24" />](https://github.com/DanGioGames/factoriomusicmachine/raw/main/blueprints/score-manager-timeline-extension) by placing it so that the bottom substation overlap with the previous one. Each placement will add 4 bars to the timelines ("Snap to grid" has been activated to ease multiple placements of the blueprint).
+The score-manager-base blueprint comes with 4 bars of music timelines. In order to program longer tunes, use the score-manager-timeline-extension blueprint [<img src="https://wiki.factorio.com/images/thumb/Blueprint.png/32px-Blueprint.png" width="24" height="24" />](https://github.com/DanGioGames/factorio-combinator-orchestra/raw/main/blueprints/score-manager-timeline-extension) by placing it so that the bottom substation overlap with the previous one. Each placement will add 4 bars to the timelines ("Snap to grid" has been activated to ease multiple placements of the blueprint).
 
 <img src="/images/screenshots/score-manager-timeline-extension.png"/>
 
-### <a name="arpeggiator"></a>Arpeggiator [<img src="https://wiki.factorio.com/images/thumb/Blueprint.png/32px-Blueprint.png" width="24" height="24" />](https://github.com/DanGioGames/factoriomusicmachine/raw/main/blueprints/arpeggiator-base)
+### <a name="arpeggiator"></a>Arpeggiator [<img src="https://wiki.factorio.com/images/thumb/Blueprint.png/32px-Blueprint.png" width="24" height="24" />](https://github.com/DanGioGames/factorio-combinator-orchestra/raw/main/blueprints/arpeggiator-base)
 #### Overview
 The Arpeggiator generates and plays arpeggios when it receives `[arpeggio-ID]` and `[clock]` signals.
 
@@ -131,9 +131,9 @@ Both wires <img src="https://wiki.factorio.com/images/thumb/Red_wire.png/48px-Re
 * <img src="/images/screenshots/virtual-signal-O.png" width="24" height="24"/> sets an `offset` for the arpeggio pattern
 
 #### Root note
-Select `root-note` by setting <img src="/images/screenshots/virtual-signal-R.png" width="24" height="24"/> in Arpeggiator's input. It follows the chromatic scale starting from A, meaning that 1 = A ; 2 = A# ; 3 = B ; 4 = C etc...
+Select `root-note` by setting <img src="/images/screenshots/virtual-signal-R.png" width="24" height="24"/> in Arpeggiator's input. It follows the chromatic scale starting from F, meaning that 1 = F ; 2 = F# ; 3 = G ; 4 = G# etc...
 
-You can go higher than 12 ; setting <img src="/images/screenshots/virtual-signal-R.png" width="24" height="24"/> to 13, 25 or 37 will also set the `root-note` to A (see <a href="https://en.wikipedia.org/wiki/Chromatic_scale" target="_blank">Chromatic scale</a>). You can also go lower than 0 but going too low will result in out of range, silent notes from the Speakers.
+You can go higher than 12 ; setting <img src="/images/screenshots/virtual-signal-R.png" width="24" height="24"/> to 13, 25 or 37 will also set the `root-note` to A (see <a href="https://en.wikipedia.org/wiki/Chromatic_scale" target="_blank">Chromatic scale</a>). You can also go lower than 0 but doing so will often result in out of range, silent notes from the Speakers.
 
 *Note : the Arpeggiator has an automated Chord inverter. It outputs `[inversion]` signals depending on `root-note` value, in order to provide better voice progressions when changing chords. If you're not happy with the chord inversion you get with a given root note, just add or substract 12 to <img src="/images/screenshots/virtual-signal-R.png" width="24" height="24"/> and you'll get the same chord in a higher or lower inversion.*
 
