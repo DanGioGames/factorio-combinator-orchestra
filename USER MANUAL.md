@@ -14,11 +14,9 @@ The purpose of the Factorio Combinator Orchestra project is to make music creati
 This user manual is meant to explain how to use each component to create music and how to expand them to suit your musical needs.
 
 ### Lexic & syntax rules
-Virtual signals like <img src="/images/screenshots/virtual-signal-R.png" width="24" height="24"/> are represented by their ingame image. Non-image, text letters like A, F, G represent **music notes** following the <a href="https://en.wikipedia.org/wiki/Musical_note#12-tone_chromatic_scale" target="_blank">English notes naming convention</a>.
-
-Some signals will be expressed as `variables` or grouped in `[arrays]` to improve readability.
-
-**Instrument** refers to the instrument selected in the programmable speaker GUI. **Component** refers a Combinator Orchestra part like the Arpeggiator.
+* Virtual signals like <img src="/images/screenshots/virtual-signal-R.png" width="24" height="24"/> are represented by their ingame image. Non-image, text letters like A, F, G represent **music notes** following the <a href="https://en.wikipedia.org/wiki/Musical_note#12-tone_chromatic_scale" target="_blank">English notes naming convention</a>.
+* Some signals will be expressed as `variables` or grouped in `[arrays]` to improve readability.
+* **Instrument** refers to the instrument selected in the programmable speaker GUI. **Component** refers to a Combinator Orchestra part like the Arpeggiator.
 
 ## <a name="quick-setup"></a>Quick setup
 1. In Factorio, switch to editor mode by entering /editor in the console
@@ -112,17 +110,17 @@ The Arpeggiator is mainly divided into 5 parts :
 
 ![](/images/screenshots/arpeggiator-overview.png)
 <img src="/images/misc/yellow.png" width="20" height="16" /> Speakers : produce the sound from the `arpeggio` signal<br>
-<img src="/images/misc/red.png" width="20" height="16" /> Chord inverter : send `[inversion]` signals to the Chord library when `root-note` increases to make chord changes less brutal<br>
+<img src="/images/misc/red.png" width="20" height="16" /> Chord inverter : sends `[inversion]` signals to the Chord library when `root-note` increases to make chord changes less brutal<br>
 <img src="/images/misc/magenta.png" width="20" height="16" /> Chord library : processes `root-note`, `chord-type` and `[inversion]` signals and outputs `[chord-mold]` (13 unique notes/signals)<br>
-<img src="/images/misc/green.png" width="20" height="16" /> Loop maker : generates `arpeggio-loop` (<img src="https://wiki.factorio.com/images/thumb/Iron_gear_wheel.png/48px-Iron_gear_wheel.png" width="20" height="16" /> signal) from `pattern-length` and `[clock]` signals<br>
-<img src="/images/misc/cyan.png" width="20" height="16" /> Pattern library : receive `pattern`, send back `pattern-length` to the Loop maker, and generates the final `arpeggio` signal from `arpeggio-loop` and `[chord-mold]`
+<img src="/images/misc/green.png" width="20" height="16" /> Loop maker : generates `arpeggio-loop` from `pattern-length` and `[clock]` signals<br>
+<img src="/images/misc/cyan.png" width="20" height="16" /> Pattern library : receives `pattern`, sends back `pattern-length` to the Loop maker, and generates the final `arpeggio` signal from `arpeggio-loop` and `[chord-mold]`
 
 #### Circuit network input
-`[clock]` is sent by the [**Clock**](#clock) via <img src="https://wiki.factorio.com/images/thumb/Red_wire.png/48px-Red_wire.png" width="24" height="24"/>
+`[clock]` is sent by the [**Clock**](#clock) via red wire <img src="https://wiki.factorio.com/images/thumb/Red_wire.png/48px-Red_wire.png" width="24" height="24"/>
 
-`[arpeggio-ID]` is sent by the [**Score manager**](#score-manager) via <img src="https://wiki.factorio.com/images/thumb/Green_wire.png/48px-Green_wire.png" width="24" height="24"/>.
+`[arpeggio-ID]` is sent by the [**Score manager**](#score-manager) via green wire <img src="https://wiki.factorio.com/images/thumb/Green_wire.png/48px-Green_wire.png" width="24" height="24"/>
 
-Both wires <img src="https://wiki.factorio.com/images/thumb/Red_wire.png/48px-Red_wire.png" width="24" height="24"/><img src="https://wiki.factorio.com/images/thumb/Green_wire.png/48px-Green_wire.png" width="24" height="24"/> need to be connected to any of the 2 big power poles near the Speakers.
+Both wires <img src="https://wiki.factorio.com/images/thumb/Red_wire.png/48px-Red_wire.png" width="24" height="24"/><img src="https://wiki.factorio.com/images/thumb/Green_wire.png/48px-Green_wire.png" width="24" height="24"/> need to be connected to any of the 2 big electric poles <img src="https://wiki.factorio.com/images/thumb/Big_electric_pole.png/32px-Big_electric_pole.png" width="24" height="24"/> near the Speakers.
 
 `[arpeggio-ID]` is defined by 4 signals (see <a href="https://en.wikipedia.org/wiki/Chord_(music)" target="_blank">Chord</a>) :
 * <img src="/images/screenshots/virtual-signal-R.png" width="24" height="24"/> sets `root-note`
@@ -133,9 +131,9 @@ Both wires <img src="https://wiki.factorio.com/images/thumb/Red_wire.png/48px-Re
 #### Root note
 Select `root-note` by setting <img src="/images/screenshots/virtual-signal-R.png" width="24" height="24"/> in Arpeggiator's input. It follows the chromatic scale starting from F, meaning that 1 = F ; 2 = F# ; 3 = G ; 4 = G# etc...
 
-You can go higher than 12 ; setting <img src="/images/screenshots/virtual-signal-R.png" width="24" height="24"/> to 13, 25 or 37 will also set the `root-note` to A (see <a href="https://en.wikipedia.org/wiki/Chromatic_scale" target="_blank">Chromatic scale</a>). You can also go lower than 0 but doing so will often result in out of range, silent notes from the Speakers.
+You can go higher than 12 ; setting <img src="/images/screenshots/virtual-signal-R.png" width="24" height="24"/> to 13, 25 or 37 will also set the `root-note` to F (see <a href="https://en.wikipedia.org/wiki/Chromatic_scale" target="_blank">Chromatic scale</a>). You can also go lower than 0 but doing so will often result in out of range, silent notes from the Speakers.
 
-*Note : the Arpeggiator has an automated Chord inverter. It outputs `[inversion]` signals depending on `root-note` value, in order to provide better voice progressions when changing chords. If you're not happy with the chord inversion you get with a given root note, just add or substract 12 to <img src="/images/screenshots/virtual-signal-R.png" width="24" height="24"/> and you'll get the same chord in a higher or lower inversion.*
+*Note : the Arpeggiator has an automated Chord inverter. It outputs `[inversion]` signals depending on `root-note` value, in order to provide better voice progressions when changing chords. You can change the chord inversion manually by adding or substracting 12 to <img src="/images/screenshots/virtual-signal-R.png" width="24" height="24"/> .*
 
 #### Chord type
 Select `chord-type` by setting <img src="/images/screenshots/virtual-signal-Q.png" width="24" height="24"/> in Arpeggiator's input. The chord type will determine 12 pitches starting from the `root-note`, all 13 unique pitches will form `[chord-mold]` signals.
@@ -193,7 +191,7 @@ Here are the 16 included patterns in the base Arpeggiator :
 Select `offset` by setting <img src="/images/screenshots/virtual-signal-O.png" width="24" height="24"/> in Arpeggiator's input. The offset will delay or advance the pattern by given amount of breves (sixteenth notes).
 
 #### <a name="adding-new-chords"></a>Adding new chords
-To add new chords to the Chord library, you need to place the arpeggiator-chord-library-extension blueprint. Placing this blueprint adds 8 new `chord-type` entries in the Chord-library, referenced as 17-24.
+To add new chords to the Chord library, you need to place the arpeggiator-chord-library-extension blueprint.<br>[*this section needs to be expanded*]
 
 #### <a name="adding-new-patterns"></a>Adding new patterns
-To add new patterns to the Pattern library, you need to place the arpeggiator-pattern-library-extension blueprint.
+To add new patterns to the Pattern library, you need to place the arpeggiator-pattern-library-extension blueprint.<br>[*this section needs to be expanded*]
