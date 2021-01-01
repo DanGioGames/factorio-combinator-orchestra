@@ -14,7 +14,7 @@ The purpose of the Factorio Combinator Orchestra project is to make music creati
 This user manual is meant to explain how to use each component to create music and how to expand them to suit your musical needs.
 
 ### Lexic & syntax rules
-* Virtual signals like <img src="/images/screenshots/virtual-signal-R.png" width="24" height="24"/> are represented by their ingame image. Non-image, text letters like A, F, G represent **music notes** following the <a href="https://en.wikipedia.org/wiki/Musical_note#12-tone_chromatic_scale" target="_blank">English notes naming convention</a>.
+* Virtual signals like <img src="/images/icons/signal-R.png" width="24" height="24"/> are represented by their ingame image. Non-image, text letters like A, F, G represent **music notes** following the <a href="https://en.wikipedia.org/wiki/Musical_note#12-tone_chromatic_scale" target="_blank">English notes naming convention</a>.
 * Some signals will be expressed as `variables` or grouped in `[arrays]` to improve readability.
 * **Instrument** refers to the instrument selected in the programmable speaker GUI. **Component** refers to a Combinator Orchestra part like the Arpeggiator.
 
@@ -32,25 +32,25 @@ This user manual is meant to explain how to use each component to create music a
 The Clock is the  central component of the Factorio Combinator Orchestra. It outputs various signals which carry information about time structure (bars, beats, beat decomposition) to the other components.
 
 4 variables are to be set in the input constant combinator (near the substation) :<br>
-* <img src="/images/screenshots/virtual-signal-T.png" width="24" height="24"/> sets the `tempo` (expressed in beats per minute)
-* <img src="https://wiki.factorio.com/images/thumb/Heavy_oil_barrel.png/48px-Heavy_oil_barrel.png" width="24" height="24"/> sets `beat-decomposition` : 4 for simple meter, 6 for compound meter (you can also set unusual decompositions like 5 or 11)
-* <img src="https://wiki.factorio.com/images/thumb/Crude_oil_barrel.png/48px-Crude_oil_barrel.png" width="24" height="24"/> sets the `beats-per-bar` number
-* <img src="https://wiki.factorio.com/images/thumb/Petroleum_gas_barrel.png/48px-Petroleum_gas_barrel.png" width="24" height="24"/> sets the length of the clock cycle in bars (this will basically define your tune length)
+* <img src="/images/icons/signal-T.png" width="24" height="24"/> sets the `tempo` expressed in beats per minute
+* <img src="/images/icons/signal-D.png" width="24" height="24"/> sets `beat-decomposition` expressed in 16th notes per beat : 4 for simple meter, 6 for compound meter (you can also set unusual decompositions like 5 or 11)
+* <img src="/images/icons/signal-B.png" width="24" height="24"/> sets the `beats-per-bar` number
+* <img src="https://wiki.factorio.com/images/thumb/Utility_science_pack.png/32px-Utility_science_pack.png" width="24" height="24"/> sets the length of the clock cycle in bars (this will define your tune length)
 
 It outputs several different signals at once (referenced as `[clock]` in this manual), corresponding to various rhythmic informations :
-* <img src="https://wiki.factorio.com/images/thumb/Automation_science_pack.png/48px-Automation_science_pack.png" width="24" height="24"/>  = 16th note count, goes from 1 to ... (end of clock cycle)
-* <img src="https://wiki.factorio.com/images/thumb/Logistic_science_pack.png/48px-Logistic_science_pack.png" width="24" height="24"/> =  8th note count, goes from 1 to ...
-* <img src="https://wiki.factorio.com/images/thumb/Military_science_pack.png/48px-Military_science_pack.png" width="24" height="24"/> =  beat count, goes from 1 to ...
-* <img src="https://wiki.factorio.com/images/thumb/Chemical_science_pack.png/48px-Chemical_science_pack.png" width="24" height="24"/> =  group of 2 beats count, goes from 1 to ...
-* <img src="https://wiki.factorio.com/images/thumb/Production_science_pack.png/48px-Production_science_pack.png" width="24" height="24"/> =  bar count, goes from 1 to ...
-* <img src="https://wiki.factorio.com/images/thumb/Utility_science_pack.png/48px-Utility_science_pack.png" width="24" height="24"/> =  group of 2 bars count, goes from 1 to ...
+* <img src="https://wiki.factorio.com/images/thumb/Automation_science_pack.png/48px-Automation_science_pack.png" width="24" height="24"/>  = 16th note triplets count, goes from 1 to ... (end of clock cycle)
+* <img src="https://wiki.factorio.com/images/thumb/Logistic_science_pack.png/48px-Logistic_science_pack.png" width="24" height="24"/> =  16th notes count, goes from 1 to ...
+* <img src="https://wiki.factorio.com/images/thumb/Military_science_pack.png/48px-Military_science_pack.png" width="24" height="24"/> =  8th note triplets count, goes from 1 to ...
+* <img src="https://wiki.factorio.com/images/thumb/Chemical_science_pack.png/48px-Chemical_science_pack.png" width="24" height="24"/> =  8th notes count, goes from 1 to ...
+* <img src="https://wiki.factorio.com/images/thumb/Production_science_pack.png/48px-Production_science_pack.png" width="24" height="24"/> =  beats count, goes from 1 to ...
+* <img src="https://wiki.factorio.com/images/thumb/Utility_science_pack.png/48px-Utility_science_pack.png" width="24" height="24"/> =  bars count, goes from 1 to ...
 * <img src="https://wiki.factorio.com/images/thumb/Space_science_pack.png/48px-Space_science_pack.png" width="24" height="24"/> =  group of 4 bars count, goes from 1 to ...
 * <img src="https://wiki.factorio.com/images/thumb/Heavy_oil_barrel.png/48px-Heavy_oil_barrel.png" width="24" height="24"/> =  16th note count in one beat, goes from 1 to `beat-decomposition` over and over (eg. if there's 4 sixteenth notes per beat, it goes from 1 through 4)
 * <img src="https://wiki.factorio.com/images/thumb/Empty_barrel.png/48px-Empty_barrel.png" width="24" height="24"/> =  beat count in group of 2 beats, goes from 1 to 2 over and over
 * <img src="https://wiki.factorio.com/images/thumb/Crude_oil_barrel.png/48px-Crude_oil_barrel.png" width="24" height="24"/> =  beat count in one bar, goes from 1 to `beats-per-bar` over and over (eg. if there's 5 beats per bar, it goes from 1 through 5)
 * <img src="https://wiki.factorio.com/images/thumb/Petroleum_gas_barrel.png/48px-Petroleum_gas_barrel.png" width="24" height="24"/> =  bar count in group of 4 bars, goes from 1 to 4 over and over
 
-*This effectively means that programming tunes in the Combinator Orchestra should follow this time structure : x bars divided into y beats divided into z breves (or sixteenth notes)*
+*This effectively means that programming tunes in the Combinator Orchestra should follow this time structure : x bars divided into y beats divided into z sixteenth notes)*
 
 ### <a name="score-manager"></a>Score manager [<img src="https://wiki.factorio.com/images/thumb/Blueprint.png/32px-Blueprint.png" width="24" height="24" />](https://github.com/DanGioGames/factorio-combinator-orchestra/raw/main/blueprints/score-manager-base)
 #### Overview
@@ -123,24 +123,24 @@ The Arpeggiator is mainly divided into 5 parts :
 Both wires <img src="https://wiki.factorio.com/images/thumb/Red_wire.png/48px-Red_wire.png" width="24" height="24"/><img src="https://wiki.factorio.com/images/thumb/Green_wire.png/48px-Green_wire.png" width="24" height="24"/> need to be connected to any of the 2 big electric poles <img src="https://wiki.factorio.com/images/thumb/Big_electric_pole.png/32px-Big_electric_pole.png" width="24" height="24"/> near the Speakers.
 
 `[arpeggio-ID]` is defined by 4 signals (see <a href="https://en.wikipedia.org/wiki/Chord_(music)" target="_blank">Chord</a>) :
-* <img src="/images/screenshots/virtual-signal-R.png" width="24" height="24"/> sets `root-note`
-* <img src="/images/screenshots/virtual-signal-Q.png" width="24" height="24"/> sets `chord-type`
-* <img src="/images/screenshots/virtual-signal-P.png" width="24" height="24"/> sets the arpeggio `pattern`
-* <img src="/images/screenshots/virtual-signal-O.png" width="24" height="24"/> sets an `offset` for the arpeggio pattern
+* <img src="/images/icons/signal-R.png" width="24" height="24"/> sets `root-note`
+* <img src="/images/icons/signal-Q.png" width="24" height="24"/> sets `chord-type`
+* <img src="/images/icons/signal-P.png" width="24" height="24"/> sets the arpeggio `pattern`
+* <img src="/images/icons/signal-O.png" width="24" height="24"/> sets an `offset` for the arpeggio pattern
 
 #### Root note
-Select `root-note` by setting <img src="/images/screenshots/virtual-signal-R.png" width="24" height="24"/> in Arpeggiator's input. It follows the chromatic scale starting from F, meaning that 1 = F ; 2 = F# ; 3 = G ; 4 = G# etc...
+Select `root-note` by setting <img src="/images/icons/signal-R.png" width="24" height="24"/> in Arpeggiator's input. It follows the chromatic scale starting from F, meaning that 1 = F ; 2 = F# ; 3 = G ; 4 = G# etc...
 
-You can go higher than 12 ; setting <img src="/images/screenshots/virtual-signal-R.png" width="24" height="24"/> to 13, 25 or 37 will also set the `root-note` to F (see <a href="https://en.wikipedia.org/wiki/Chromatic_scale" target="_blank">Chromatic scale</a>). You can also go lower than 0 but doing so will often result in out of range, silent notes from the Speakers.
+You can go higher than 12 ; setting <img src="/images/icons/signal-R.png" width="24" height="24"/> to 13, 25 or 37 will also set the `root-note` to F (see <a href="https://en.wikipedia.org/wiki/Chromatic_scale" target="_blank">Chromatic scale</a>). You can also go lower than 0 but doing so will often result in out of range, silent notes from the Speakers.
 
 *Note : the Arpeggiator has an automated Chord inverter. It outputs `[inversion]` signals depending on `root-note` value, in order to provide better voice progressions when changing chords. You can change the chord inversion manually by adding or substracting 12 to <img src="/images/screenshots/virtual-signal-R.png" width="24" height="24"/> .*
 
 #### Chord type
-Select `chord-type` by setting <img src="/images/screenshots/virtual-signal-Q.png" width="24" height="24"/> in Arpeggiator's input. The chord type will determine 12 pitches starting from the `root-note`, all 13 unique pitches will form `[chord-mold]` signals.
+Select `chord-type` by setting <img src="/images/icons/signal-Q.png" width="24" height="24"/> in Arpeggiator's input. The chord type will determine 12 pitches starting from the `root-note`, all 13 unique pitches will form `[chord-mold]` signals.
 
 Here are the 16 chord types included in the base Arpeggiator :
 
-![](/images/screenshots/virtual-signal-Q.png) | Chord type | Base notes (root position on C)
+![](/images/icons/signal-Q.png) | Chord type | Base notes (root position on C)
 ----- | ----- | -----
 1 | Major triad | <img src="/images/chords/maj.png" width="250" height="75" />
 2 | Minor triad | <img src="/images/chords/min.png" width="250" height="75" />
@@ -162,11 +162,11 @@ Here are the 16 chord types included in the base Arpeggiator :
 *Note : the Chord library doesn't only outputs the 3 or 4 notes showed in the Chord type table. Instead, it duplicates the 3 or 4 base notes in higher octaves to reach a total of 13 chord notes including the root note. More Chord types can be added to the Chord library, see [Adding new chords](#adding-new-chords).*
 
 #### Pattern
-Select `pattern` by setting <img src="/images/screenshots/virtual-signal-P.png" width="24" height="24"/> in Arpeggiator's input. The pattern will determine which of the 13 `chord-mold` notes are played and when.
+Select `pattern` by setting <img src="/images/icons/signal-P.png" width="24" height="24"/> in Arpeggiator's input. The pattern will determine which of the 13 `chord-mold` notes are played and when.
 
 Here are the 16 included patterns in the base Arpeggiator :
 
-![](/images/screenshots/virtual-signal-P.png) | Pattern length | 32 notes sample on Cmaj root position
+![](/images/icons/signal-P.png) | Pattern length | 32 notes sample on Cmaj root position
 ----- | ----- | -----
 1 | 4 | <img src="/images/patterns/arp-1.png" width="375" height="75" />
 2 | 4 | <img src="/images/patterns/arp-2.png" width="375" height="75" />
@@ -188,7 +188,7 @@ Here are the 16 included patterns in the base Arpeggiator :
 *Note : more patterns can be added to the Pattern library, see [Adding new patterns](#adding-new-patterns).*
 
 #### Offset
-Select `offset` by setting <img src="/images/screenshots/virtual-signal-O.png" width="24" height="24"/> in Arpeggiator's input. The offset will delay or advance the pattern by given amount of breves (sixteenth notes).
+Select `offset` by setting <img src="/images/icons/signal-O.png" width="24" height="24"/> in Arpeggiator's input. The offset will delay or advance the pattern by given amount of breves (sixteenth notes).
 
 #### <a name="adding-new-chords"></a>Adding new chords
 To add new chords to the Chord library, you need to place the arpeggiator-chord-library-extension blueprint.<br>[*this section needs to be expanded*]
