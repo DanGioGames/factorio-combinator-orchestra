@@ -18,12 +18,10 @@ This user manual is meant to explain how to use each component to create music a
 * Some signals will be expressed as `variables` or grouped in `[arrays]` to improve readability.
 * **Instrument** refers to the instrument selected in the programmable speaker GUI. **Component** refers to a Combinator Orchestra part like the Arpeggiator.
 
-## <a name="quick-setup"></a>Quick setup
-1. In Factorio, switch to editor mode by entering /editor in the console
-2. Import and place both Clock and Score manager blueprints in your game
-3. Import and place at least one other component blueprint
-4. Connect Clock and Score manager to the components inputs, with red wire and green wire respectively
-5. Manually set programs in the Score manager, see (reference needed here)
+## <a name="quick-setup"></a>Quick setup [<img src="https://wiki.factorio.com/images/thumb/Blueprint.png/32px-Blueprint.png" width="24" height="24" />](https://github.com/DanGioGames/factorio-combinator-orchestra/raw/main/blueprints/clock-base)
+1. Import the quick-setup blueprint in your game
+2. Switch to editor mode by entering /editor in the console
+3. Place the blueprint, it will play arpeggios immediatly
 
 ## <a name="components"></a>Components
 ### <a name="clock"></a>Clock [<img src="https://wiki.factorio.com/images/thumb/Blueprint.png/32px-Blueprint.png" width="24" height="24" />](https://github.com/DanGioGames/factorio-combinator-orchestra/raw/main/blueprints/clock-base)
