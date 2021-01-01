@@ -44,13 +44,15 @@ It outputs several different signals at once (referenced as `[clock]` in this ma
 * <img src="https://wiki.factorio.com/images/thumb/Chemical_science_pack.png/48px-Chemical_science_pack.png" width="24" height="24"/> =  8th notes count, goes from 1 to ...
 * <img src="https://wiki.factorio.com/images/thumb/Production_science_pack.png/48px-Production_science_pack.png" width="24" height="24"/> =  beats count, goes from 1 to ...
 * <img src="https://wiki.factorio.com/images/thumb/Utility_science_pack.png/48px-Utility_science_pack.png" width="24" height="24"/> =  bars count, goes from 1 to ...
-* <img src="https://wiki.factorio.com/images/thumb/Space_science_pack.png/48px-Space_science_pack.png" width="24" height="24"/> =  group of 4 bars count, goes from 1 to ...
-* <img src="https://wiki.factorio.com/images/thumb/Heavy_oil_barrel.png/48px-Heavy_oil_barrel.png" width="24" height="24"/> =  16th note count in one beat, goes from 1 to `beat-decomposition` over and over (eg. if there's 4 sixteenth notes per beat, it goes from 1 through 4)
-* <img src="https://wiki.factorio.com/images/thumb/Empty_barrel.png/48px-Empty_barrel.png" width="24" height="24"/> =  beat count in group of 2 beats, goes from 1 to 2 over and over
-* <img src="https://wiki.factorio.com/images/thumb/Crude_oil_barrel.png/48px-Crude_oil_barrel.png" width="24" height="24"/> =  beat count in one bar, goes from 1 to `beats-per-bar` over and over (eg. if there's 5 beats per bar, it goes from 1 through 5)
-* <img src="https://wiki.factorio.com/images/thumb/Petroleum_gas_barrel.png/48px-Petroleum_gas_barrel.png" width="24" height="24"/> =  bar count in group of 4 bars, goes from 1 to 4 over and over
+* <img src="https://wiki.factorio.com/images/thumb/Space_science_pack.png/48px-Space_science_pack.png" width="24" height="24"/> =  groups of 4 bars count, goes from 1 to ...
+* <img src="https://wiki.factorio.com/images/thumb/Heavy_oil_barrel.png/48px-Heavy_oil_barrel.png" width="24" height="24"/> =  16th note triplets count in one quarter note, goes from 1 to 6
+* <img src="https://wiki.factorio.com/images/thumb/Lubricant_barrel.png/32px-Lubricant_barrel.png" width="24" height="24"/> = 16th notes count in one beat, goes from 1 to `beat-decomposition`
+* <img src="https://wiki.factorio.com/images/thumb/Crude_oil_barrel.png/48px-Crude_oil_barrel.png" width="24" height="24"/> = 8th note triplets count in one quarter note, goes from 1 to 3
+* <img src="https://wiki.factorio.com/images/thumb/Water_barrel.png/32px-Water_barrel.png" width="24" height="24"/> = 8th notes count in one beat, goes from 1 to `beat-decomposition`/2
+* <img src="https://wiki.factorio.com/images/thumb/Petroleum_gas_barrel.png/48px-Petroleum_gas_barrel.png" width="24" height="24"/> =  beats count in bar, goes from 1 to `beats-per-bar`
+* <img src="https://wiki.factorio.com/images/thumb/Light_oil_barrel.png/32px-Light_oil_barrel.png" width="24" height="24"/> =  bars count in groups of 4 bars, goes from 1 to 4
 
-*This effectively means that programming tunes in the Combinator Orchestra should follow this time structure : x bars divided into y beats divided into z sixteenth notes)*
+*This effectively means that programming tunes in the Combinator Orchestra should follow this time structure : <img src="https://wiki.factorio.com/images/thumb/Utility_science_pack.png/48px-Utility_science_pack.png" width="24" height="24"/> bars divided into <img src="/images/icons/signal-B.png" width="24" height="24"/> beats divided into <img src="/images/icons/signal-D.png" width="24" height="24"/> sixteenth notes)*
 
 ### <a name="score-manager"></a>Score manager [<img src="https://wiki.factorio.com/images/thumb/Blueprint.png/32px-Blueprint.png" width="24" height="24" />](https://github.com/DanGioGames/factorio-combinator-orchestra/raw/main/blueprints/score-manager-base)
 #### Overview
@@ -140,7 +142,7 @@ Select `chord-type` by setting <img src="/images/icons/signal-Q.png" width="24" 
 
 Here are the 16 chord types included in the base Arpeggiator :
 
-![](/images/icons/signal-Q.png) | Chord type | Base notes (root position on C)
+<img src="/images/icons/signal-Q.png" width="24" height="24"/> | Chord type | Base notes (root position on C)
 ----- | ----- | -----
 1 | Major triad | <img src="/images/chords/maj.png" width="250" height="75" />
 2 | Minor triad | <img src="/images/chords/min.png" width="250" height="75" />
@@ -166,7 +168,7 @@ Select `pattern` by setting <img src="/images/icons/signal-P.png" width="24" hei
 
 Here are the 16 included patterns in the base Arpeggiator :
 
-![](/images/icons/signal-P.png) | Pattern length | 32 notes sample on Cmaj root position
+<img src="/images/icons/signal-P.png" width="24" height="24"/> | Pattern length | 32 notes sample on Cmaj root position
 ----- | ----- | -----
 1 | 4 | <img src="/images/patterns/arp-1.png" width="375" height="75" />
 2 | 4 | <img src="/images/patterns/arp-2.png" width="375" height="75" />
