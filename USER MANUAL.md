@@ -135,7 +135,7 @@ Select `root-note` by setting <img src="/images/icons/signal-R.png" width="24" h
 
 You can go higher than 12 ; setting <img src="/images/icons/signal-R.png" width="24" height="24"/> to 13, 25 or 37 will also set the `root-note` to F (see <a href="https://en.wikipedia.org/wiki/Chromatic_scale" target="_blank">Chromatic scale</a>). You can also go lower than 0 but doing so will often result in out of range, silent notes from the Speakers.
 
-*Note : the Arpeggiator has an automated Chord inverter. It outputs `[inversion]` signals depending on `root-note` value, in order to provide better voice progressions when changing chords. You can change the chord inversion manually by adding or substracting 12 to <img src="/images/screenshots/virtual-signal-R.png" width="24" height="24"/> .*
+*Note : the Arpeggiator has an automated Chord inverter. It outputs `[inversion]` signals depending on `root-note` value, in order to provide better voice progressions when changing chords. You can change the chord inversion manually by adding or substracting 12 to <img src="/images/icons/signal-R.png" width="24" height="24"/> .*
 
 #### Chord type
 Select `chord-type` by setting <img src="/images/icons/signal-Q.png" width="24" height="24"/> in Arpeggiator's input. The chord type will determine 12 pitches starting from the `root-note`, all 13 unique pitches will form `[chord-mold]` signals.
